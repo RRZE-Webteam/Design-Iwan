@@ -23,11 +23,11 @@
 function iwan_custom_header_setup() {
 	$args = array(
 		// Text color and image (empty to use none).
-		'default-text-color'     => '220e10',
+		'default-text-color'     => '003366',
 		'default-image'          => '%s/images/headers/fau-aktuell.png',
 
 		// Set height and width, with a maximum value for the width.
-		'height'                 => 230,
+		'height'                 => 100,
 		'width'                  => 1600,
 
 		// Callbacks for styling the header and the admin preview.
@@ -48,21 +48,11 @@ function iwan_custom_header_setup() {
 			'thumbnail_url' => '%s/images/headers/fau-aktuell-thumbnail.png',
 			'description'   => _x( 'FAU Aktuell', 'header image description', 'iwan' )
 		),
-		/*'circle' => array(
-			'url'           => '%s/images/headers/circle.png',
-			'thumbnail_url' => '%s/images/headers/circle-thumbnail.png',
-			'description'   => _x( 'Circle', 'header image description', 'iwan' )
+		'fau-blogs' => array(
+			'url'           => '%s/images/headers/fau-blogs.png',
+			'thumbnail_url' => '%s/images/headers/fau-blogs-thumbnail.png',
+			'description'   => _x( 'FAU Blogsystem', 'header image description', 'iwan' )
 		),
-		'diamond' => array(
-			'url'           => '%s/images/headers/diamond.png',
-			'thumbnail_url' => '%s/images/headers/diamond-thumbnail.png',
-			'description'   => _x( 'Diamond', 'header image description', 'iwan' )
-		),
-		'star' => array(
-			'url'           => '%s/images/headers/star.png',
-			'thumbnail_url' => '%s/images/headers/star-thumbnail.png',
-			'description'   => _x( 'Star', 'header image description', 'iwan' )
-		),*/
 	) );
 }
 add_action( 'after_setup_theme', 'iwan_custom_header_setup', 11 );
@@ -160,21 +150,18 @@ function iwan_admin_header_style() {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing:    border-box;
 		box-sizing:         border-box;
-		<?php
-		if ( ! empty( $header_image ) ) {
-			echo 'background: url(' . esc_url( $header_image ) . ') no-repeat scroll top; background-size: 1600px auto;';
-		} ?>
-		padding: 0 20px;
+		padding: 20px;
+		background: #ffffff;
 	}
 	#headimg .home-link {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing:    border-box;
 		box-sizing:         border-box;
-		margin: 0 auto;
+		margin: 0;
 		max-width: 1040px;
 		<?php
 		if ( ! empty( $header_image ) || display_header_text() ) {
-			echo 'min-height: 230px;';
+			echo 'min-height: 100px;';
 		} ?>
 		width: 100%;
 	}
@@ -187,20 +174,32 @@ function iwan_admin_header_style() {
 	}
 	<?php endif; ?>
 	#headimg h1 {
-		font: bold 60px/1 Bitter, Georgia, serif;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size: 2em;
+		font-weight: bold;
+		line-height: 1;
+		color: #003366 !important;
 		margin: 0;
-		padding: 58px 0 10px;
+		padding: 10px 0 10px;
 	}
 	#headimg h1 a {
 		text-decoration: none;
+		color: #003366;
 	}
 	#headimg h1 a:hover {
 		text-decoration: underline;
 	}
 	#headimg h2 {
-		font: 200 italic 24px "Source Sans Pro", Helvetica, sans-serif;
-		margin: 0;
+		font: italic 300 24px "Helvetica Neue",Helvetica,sans-serif;
+		color: #003366;
 		text-shadow: none;
+		clear: none;
+		margin: 0;
+		padding: 0;
+	}
+	#headimg img {
+		float: left;
+		margin-right: 20px;
 	}
 	.default-header img {
 		max-width: 230px;
@@ -219,10 +218,11 @@ function iwan_admin_header_style() {
  */
 function iwan_admin_header_image() {
 	?>
-	<div id="headimg" style="background: url(<?php header_image(); ?>) no-repeat scroll top; background-size: 1600px auto;">
+	<div id="headimg">
 		<?php $style = ' style="color:#' . get_header_textcolor() . ';"'; ?>
 		<div class="home-link">
-			<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="#"><?php bloginfo( 'name' ); ?></a></h1>
+			<img class="header-logo" src="<?php header_image(); ?>">
+			<h1 class="displaying-header-text"><a id="name" onclick="return false;" href="#"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 id="desc" class="displaying-header-text"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></h2>
 		</div>
 	</div>

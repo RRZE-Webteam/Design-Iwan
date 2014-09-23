@@ -16,6 +16,7 @@ $defaultoptions = array(
 	/* Max height for Logos and Images in Sidebar */
 	'src_socialmediabuttons' => '/css/basemod_socialmediaicons.css',
 	'aktiv-socialmediabuttons' => 1,
+	'aktiv-post-sm-buttons' => 1,
 	'aktiv-autoren' => 1,
 	'aktiv-commentreplylink' => 0,
 	'default_comment_notes_before' => '<p class="comment-notes">' . __('Deine E-Mail-Adresse wird nicht ver&ouml;ffentlicht. Erforderliche Felder sind markiert <span class="required">*</span>', 'iwan') . '</p>',
@@ -24,24 +25,6 @@ $defaultoptions = array(
 	'src-breadcrumb-image' => get_template_directory_uri() . '/images/breadcrumbarrow.gif',
 	'src-teaser-thumbnail_default' => '',
 	'category-teaser' => 1,
-	'category-num-article-fullwidth' => 10,
-	'category-num-article-halfwidth' => 0,
-	'category-teaser-maxlength' => 500,
-	'category-teaser-titleup' => 1, /* Titles up */
-	'category-teaser-datebox' => 0,
-	/*
-	 * 1 = Thumbnail (or: first picture, first video, fallback picture),
-	 * 2 = First picture (or: thumbnail, first video, fallback picture),
-	 * 3 = First video (or: thumbnail, first picture, fallback picture),
-	 * 4 = First video (or: first picture, thumbnail, fallback picture),
-	 * 5 = Nothing */
-	'category-teaser-floating' => 0,
-	'category-teaser-dateline' => 0, /* 1 = show Date on line up of the text if no datebox */
-	'category-teaser-maxlength-halfwidth' => 200,
-	'category-teaser-titleup-halfwidth' => 1, /* Titles up */
-	'category-teaser-datebox-halfwidth' => 1,
-	'category-teaser-floating-halfwidth' => 1,
-	'category-teaser-dateline-halfwidth' => 0, /* 1 = show Date on line up of the text if no datebox */
 	'num-article-startpage-fullwidth' => 1,
 	'num-article-startpage-halfwidth' => 4,
 	'teaser-thumbnail_width' => 120,
@@ -55,6 +38,12 @@ $defaultoptions = array(
 	'teaser_maxlength' => 500,
 	'teaser-titleup' => 1, /* Titles up */
 	'teaser-datebox' => 0,
+	/*
+	 * 1 = Thumbnail (or: first picture, first video, fallback picture),
+	 * 2 = First picture (or: thumbnail, first video, fallback picture),
+	 * 3 = First video (or: thumbnail, first picture, fallback picture),
+	 * 4 = First video (or: first picture, thumbnail, fallback picture),
+	 * 5 = Nothing */
 	'teaser-floating' => 0,
 	'teaser-dateline' => 0, /* 1 = show Date on line up of the text if no datebox */
 	'teaser-maxlength-halfwidth' => 200,
@@ -62,20 +51,18 @@ $defaultoptions = array(
 	'teaser-datebox-halfwidth' => 1,
 	'teaser-floating-halfwidth' => 1,
 	'teaser-dateline-halfwidth' => 0, /* 1 = show Date on line up of the text if no datebox */
-	'headerbox-datum' => '20.03.<br />+ 21.03.',
-	'headerbox-title' => 'Webkongress <br /> Erlangen <span class="jahr">2014</span>',
-	'text-startseite' => __('Startseite', 'iwan'),
-	'default_text_title_home_backlink' => __('Zur&uuml;ck zur Startseite', 'iwan'),
+	'text-startseite' => __('Home', 'iwan'),
+	'default_text_title_home_backlink' => __('Back to Home Page', 'iwan'),
 	'default_footerlink_key' => 'Fakultaeten',
 	'aktiv-buttons' => 1,
 	'aktiv-anmeldebutton' => 1,
-	'url-anmeldebutton' => 'http://de.amiando.com/iwan.html',
-	'title-anmeldebutton' => 'Tickets kaufen',
-	'color-anmeldebutton' => 'gruen',
+	'url-anmeldebutton' => '#',
+	'title-anmeldebutton' => 'Button 1',
+	'color-anmeldebutton' => 'blau',
 	'aktiv-cfpbutton' => 1,
-	'url-cfpbutton' => '/programm/vortragsvorschlag-einreichen-call-for-paper/',
-	'title-cfpbutton' => 'Vortrag einreichen',
-	'color-cfpbutton' => 'gelb',
+	'url-cfpbutton' => '#',
+	'title-cfpbutton' => 'Button 2',
+	'color-cfpbutton' => 'green',
 	'yt-alternativeembed' => 1,
 	/* YouTube Videos ueber eigenen Embedcode gestalten und an youtbe-nocookie lenken */
 	'yt-norel' => 1,
@@ -85,6 +72,22 @@ $defaultoptions = array(
 );
 
 /*
+ * Liste Social Media on Post Header
+ */
+$default_socialmedia_post = array(
+	'facebook_share' => array(
+		'name' => __('Share on Facebook','iwan'),
+		'content' => 'https://www.facebook.com/sharer/sharer.php?u=' . get_bloginfo('url'),
+		'active' => 1,
+	),
+	'twitter_share' => array(
+		'name' => __('Share on Twitter','iwan'),
+		'content' => 'https://twitter.com/intent/tweet?&via=uniFAU&url=' . get_bloginfo('url'),
+		'active' => 1,
+	),
+);
+
+	/*
  * Liste Social Media
  */
 $default_socialmedia_liste = array(
@@ -98,25 +101,29 @@ $default_socialmedia_liste = array(
 		'content' => '',
 		'active' => 0,
 	),
-	'facebook' => array(
-		'name' => 'Facebook',
-		'content' => 'https://www.facebook.com/pages/Webkongress-Erlangen',
+	'facebook_follow' => array(
+		'name' => __('Follow us on Facebook','iwan'),
+		'content' => 'https://de-de.facebook.com/Uni.Erlangen.Nuernberg',
+		'active' => 1,
+	),
+	'facebook_share' => array(
+		'name' => __('Share on Facebook','iwan'),
+		'content' => 'https://www.facebook.com/sharer/sharer.php?u=' . get_bloginfo('url'),
 		'active' => 1,
 	),
 	'twitter_follow' => array(
-		'name' => 'Twitter Follow',
+		'name' => __('Follow us on Twitter','iwan'),
 		'content' => 'https://twitter.com/UniFAU',
 		'active' => 1,
 	),
 	'twitter_share' => array(
-		'name' => 'Twitter Share',
-		'content' => 'https://twitter.com/intent/tweet?&via=uniFAU&url=',
+		'name' => __('Share on Twitter','iwan'),
+		'content' => 'https://twitter.com/intent/tweet?&via=uniFAU&url=' . get_bloginfo('url'),
 		'active' => 1,
-		'account' => 'uniFAU'
 	),
 	'gplus' => array(
 		'name' => 'Google Plus',
-		'content' => '',
+		'content' =>  '',
 		'active' => 1,
 	),
 	'flattr' => array(
@@ -213,119 +220,106 @@ $default_footerlink_liste = array(
  * Definition welche Konstanten als Optionen im Backend geaendert werden koennen
  */
 
-
 $setoptions = array(
 	'iwan_theme_options' => array(
 		'design' => array(
 			'tabtitle' => __('Design', 'iwan'),
 			'fields' => array(
-				'headerbox-datum' => array(
-					'type' => 'html',
-					'title' => __('Datumsangabe', 'iwan'),
-					'label' => __('Datum des Kongresses in Box rechts anzeigen', 'iwan'),
-					'default' => $defaultoptions['headerbox-datum'],
-				),
-				'headerbox-title' => array(
-					'type' => 'html',
-					'title' => __('Titel', 'iwan'),
-					'label' => __('Subtitel in Box rechts anzeigen', 'iwan'),
-					'default' => $defaultoptions['headerbox-title'],
-				),
 				'text-startseite' => array(
 					'type' => 'text',
-					'title' => __('Name Startseite', 'iwan'),
-					'label' => __('Name der Startseite f&uuml;r die Brotkr&uuml;melnavigation', 'iwan'),
+					'title' => __('Home Page Name', 'iwan'),
+					'label' => __('Home page name for breadcrumb navigation', 'iwan'),
 					'default' => $defaultoptions['text-startseite'],
 				),
 				'aktiv-autoren' => array(
 					'type' => 'bool',
-					'title' => __('Autoren anzeigen', 'iwan'),
-					'label' => __('Bei der Anzeige von Artikeln den Autoren anzeigen und verlinken.', 'iwan'),
+					'title' => __('Show Authors', 'iwan'),
+					'label' => __('Show and link authors on post single view.', 'iwan'),
 					'default' => $defaultoptions['aktiv-autoren'],
 				),
 				'buttons' => array(
 					'type' => 'section',
-					'title' => __('Anmeldebuttons', 'iwan'),
+					'title' => __('Buttons', 'iwan'),
 				),
 				'aktiv-buttons' => array(
 					'type' => 'bool',
-					'title' => __('Buttons anzeigen', 'iwan'),
-					'label' => __('Rechts oberhalb der Sidebar Anmeldebuttons zeigen', 'iwan'),
+					'title' => __('Show buttons', 'iwan'),
+					'label' => __('Show buttons on top of the sidebar', 'iwan'),
 					'default' => $defaultoptions['aktiv-buttons'],
 					'parent' => 'buttons'
 				),
 				'aktiv-anmeldebutton' => array(
 					'type' => 'bool',
-					'title' => __('Anmeldebutton', 'iwan'),
-					'label' => __('Button f&uuml;r eine Anmeldung', 'iwan'),
+					'title' => __('First button', 'iwan'),
+					'label' => __('Show', 'iwan'),
 					'default' => $defaultoptions['aktiv-anmeldebutton'],
 					'parent' => 'buttons'
 				),
 				'url-anmeldebutton' => array(
 					'type' => 'url',
 					'title' => __('URL', 'iwan'),
-					'label' => __('Ziel des Anmeldebuttons', 'iwan'),
+					'label' => __('Link', 'iwan'),
 					'default' => $defaultoptions['url-anmeldebutton'],
 					'parent' => 'buttons'
 				),
 				'title-anmeldebutton' => array(
 					'type' => 'text',
-					'title' => __('Linktitel', 'iwan'),
-					'label' => __('Titeltext des Anmeldebuttons', 'iwan'),
+					'title' => __('Link title', 'iwan'),
+					'label' => __('Button Text', 'iwan'),
 					'default' => $defaultoptions['title-anmeldebutton'],
 					'parent' => 'buttons'
 				),
 				'color-anmeldebutton' => array(
 					'type' => 'select',
-					'title' => __('Farbe', 'iwan'),
-					'label' => __('Hintergrundfarbe des Anmeldebuttons', 'iwan'),
+					'title' => __('Color', 'iwan'),
+					'label' => __('Button background color', 'iwan'),
 					'default' => $defaultoptions['color-anmeldebutton'],
 					'liste' => array(
-						'grau' => __("Grau", "piratenkleider"),
-						'gelb' => __("Gelb", "piratenkleider"),
-						'gruen' => __("Gr&uuml;n", "piratenkleider"),
-						'blau' => __("Blau", "piratenkleider"),
+						'grau' => __("Grey", "iwan"),
+						'gelb' => __("Yellow", "iwan"),
+						'gruen' => __("Green", "iwan"),
+						'blau' => __("Blue", "iwan"),
 					),
 					'parent' => 'buttons'
 				),
 				'aktiv-cfpbutton' => array(
 					'type' => 'bool',
-					'title' => __('Anmeldebutton', 'iwan'),
-					'label' => __('Aktiviere einen weiteren Buttons', 'iwan'),
+					'title' => __('Second button', 'iwan'),
+					'label' => __('Show', 'iwan'),
 					'default' => $defaultoptions['aktiv-cfpbutton'],
 					'parent' => 'buttons'
 				),
 				'url-cfpbutton' => array(
 					'type' => 'url',
 					'title' => __('URL', 'iwan'),
-					'label' => __('Ziel eines weiteren Buttons', 'iwan'),
+					'label' => __('Link', 'iwan'),
 					'default' => $defaultoptions['url-cfpbutton'],
 					'parent' => 'buttons'
 				),
 				'title-cfpbutton' => array(
 					'type' => 'text',
-					'title' => __('Linktitel', 'iwan'),
-					'label' => __('Titeltext eines weiteren Buttons', 'iwan'),
+					'title' => __('Link title', 'iwan'),
+					'label' => __('Button Text', 'iwan'),
 					'default' => $defaultoptions['title-cfpbutton'],
 					'parent' => 'buttons'
 				),
 				'color-cfpbutton' => array(
 					'type' => 'select',
-					'title' => __('Farbe', 'iwan'),
-					'label' => __('Hintergrundfarbe eines weiteren Buttons', 'iwan'),
+					'title' => __('Color', 'iwan'),
+					'label' => __('Button background color', 'iwan'),
 					'default' => $defaultoptions['color-cfpbutton'],
 					'liste' => array(
-						'grau' => __("Grau", "piratenkleider"),
-						'gelb' => __("Gelb", "piratenkleider"),
-						'gruen' => __("Gr&uuml;n", "piratenkleider"),
-						'blau' => __("Blau", "piratenkleider"),
+						'grau' => __("Grey", "iwan"),
+						'gelb' => __("Yellow", "iwan"),
+						'gruen' => __("Green", "iwan"),
+						'blau' => __("Blue", "iwan"),
 					),
 					'parent' => 'buttons'
 				),
 			)
 		),
 		'startseite' => array(
-			'tabtitle' => __('Startseite', 'iwan'),
+			'tabtitle' => __('Home Page', 'iwan'),
 			'fields' => array(
 				'teaser-title-maxlength' => array(
 					'type' => 'number',
@@ -442,124 +436,29 @@ $setoptions = array(
 				),
 			),
 		),
-		'Indexseiten' => array(
-			'tabtitle' => __('Indexseiten', 'iwan'),
-			'fields' => array(
-				'category' => array(
-					'type' => 'section',
-					'title' => __('Indexseiten (Kategorien, Tags und andere)', 'iwan'),
-				),
-				'category-num-article-fullwidth' => array(
-					'type' => 'number',
-					'title' => __('Beitr&auml;ge &uuml;ber ganze Breite', 'iwan'),
-					'label' => __('Zahl der Beitr&auml;ge, die &uuml;ber die gesamte Inhaltsbreite gehen.', 'iwan'),
-					'default' => $defaultoptions['category-num-article-fullwidth'],
-					'parent' => 'category'
-				),
-				'category-num-article-halfwidth' => array(
-					'type' => 'select',
-					'title' => __('Beitr&auml;ge &uuml;ber halbe Breite', 'iwan'),
-					'label' => __('Zahl der Beitr&auml;ge, die in Spalten mit je zwei Beitr&auml;gen nebeneinander, angezeigt werden.', 'iwan'),
-					'liste' => array(0 => 0, 2 => 2, 4 => 4, 6 => 6, 8 => 8, 10 => 10, 12 => 12, 14 => 14, 16 => 16),
-					'default' => $defaultoptions['category-num-article-halfwidth'],
-					'parent' => 'category'
-				),
-				'category-teaser-maxlength' => array(
-					'type' => 'number',
-					'title' => __('L&auml;nge des Teasertextes (Artikelauszug)', 'iwan'),
-					'label' => __('Maximale Textl&auml;nge f&uuml;r Artikelausz&uuml;ge', 'iwan'),
-					'default' => $defaultoptions['category-teaser-maxlength'],
-					'parent' => 'category'
-				),
-				'category-teaser-titleup' => array(
-					'type' => 'bool',
-					'title' => __('Titel oben', 'iwan'),
-					'label' => __('Titel &uuml;ber Logo/Datumsbox und Text', 'iwan'),
-					'default' => $defaultoptions['category-teaser-titleup'],
-					'parent' => 'category'
-				),
-				'category-teaser-datebox' => array(
-					'type' => 'select',
-					'title' => __('Symbolbild/Datumsbox', 'iwan'),
-					'label' => __('Links des Textauszuges das Datum, das Artikelbild, ein Bild des Artikels oder ein verlinktes Video anzeigen; Abhängig vom Inhalt des Artikels.', 'iwan'),
-					'default' => $defaultoptions['category-teaser-datebox'],
-					'liste' => array(
-						1 => __("Reihenfolge: Artikelbild, erstes Bild, erstes Video oder Ersatzbild zeigen", "iwan"),
-						2 => __("Reihenfolge: Erstes Bild, Artikelbild, erstes Video oder Ersatzbild zeigen", "iwan"),
-						3 => __("Reihenfolge: Erstes Video, Artikelbild, erstes Bild oder Ersatzbild zeigen", "iwan"),
-						4 => __("Reihenfolge: Erstes Video, erstes Bild, Artikelbild oder Ersatzbild zeigen", "iwan"),
-						5 => __("Nichts anzeigen", "iwan")),
-					'parent' => 'category'
-				),
-				'category-teaser-floating' => array(
-					'type' => 'bool',
-					'title' => __('Flie&szlig;ender Text', 'iwan'),
-					'label' => __('Text umflie&szlig;t das Bild', 'iwan'),
-					'default' => $defaultoptions['category-teaser-floating'],
-					'parent' => 'category'
-				),
-				'category-teaser-dateline' => array(
-					'type' => 'bool',
-					'title' => __('Datumszeile', 'iwan'),
-					'label' => __('Datumszeile vor dem Text, falls keine Datumsbox angezeigt wird', 'iwan'),
-					'default' => $defaultoptions['category-teaser-dateline'],
-					'parent' => 'category'
-				),
-				'category-teaser-maxlength-halfwidth' => array(
-					'type' => 'number',
-					'title' => __('L&auml;nge des Teasertextes', 'iwan'),
-					'label' => __('Maximale Textl&auml;nge f&uuml;r Artikelausz&uuml;ge (Bei Beitr&auml;gen &uuml;ber halbe Breite).', 'iwan'),
-					'default' => $defaultoptions['category-teaser-maxlength-halfwidth'],
-					'parent' => 'category'
-				),
-				'category-teaser-titleup-halfwidth' => array(
-					'type' => 'bool',
-					'title' => __('Titel oben', 'iwan'),
-					'label' => __('Titel &uuml;ber Logo/Datumsbox und Text (Bei Beitr&auml;gen &uuml;ber halbe Breite).', 'iwan'),
-					'default' => $defaultoptions['category-teaser-titleup-halfwidth'],
-					'parent' => 'category'
-				),
-				'category-teaser-datebox-halfwidth' => array(
-					'type' => 'select',
-					'title' => __('Symbolbild/Datumsbox', 'iwan'),
-					'label' => __('Links des Textauszuges das Datum, das Artikelbild, ein Bild des Artikels oder ein verlinktes Video anzeigen; Abhängig vom Inhalt des Artikels. (Bei Beitr&auml;gen &uuml;ber halbe Breite)', 'iwan'),
-					'default' => $defaultoptions['category-teaser-datebox-halfwidth'],
-					'liste' => array(
-						1 => __("Reihenfolge: Artikelbild, erstes Bild, erstes Video oder Ersatzbild zeigen", "iwan"),
-						2 => __("Reihenfolge: Erstes Bild, Artikelbild, erstes Video oder Ersatzbild zeigen", "iwan"),
-						3 => __("Reihenfolge: Erstes Video, Artikelbild, erstes Bild oder Ersatzbild zeigen", "iwan"),
-						4 => __("Reihenfolge: Erstes Video, erstes Bild, Artikelbild oder Ersatzbild zeigen", "iwan"),
-						5 => __("Nichts anzeigen", "iwan")),
-					'parent' => 'category'
-				),
-				'category-teaser-floating-halfwidth' => array(
-					'type' => 'bool',
-					'title' => __('Flie&szlig;ender Text', 'iwan'),
-					'label' => __('Text umflie&szlig;t das Bild (Bei Beitr&auml;gen &uuml;ber halbe Breite)', 'iwan'),
-					'default' => $defaultoptions['category-teaser-floating-halfwidth'],
-					'parent' => 'category'
-				),
-				'category-teaser-dateline-halfwidth' => array(
-					'type' => 'bool',
-					'title' => __('Datumszeile', 'iwan'),
-					'label' => __('Datumszeile vor dem Text, falls keine Datumsbox angezeigt wird (Bei Beitr&auml;gen &uuml;ber halbe Breite).', 'iwan'),
-					'default' => $defaultoptions['category-teaser-dateline-halfwidth'],
-					'parent' => 'category'
-				),
-			)
-		),
 		'socialmedia' => array(
 			'tabtitle' => __('Social Media', 'iwan'),
 			'fields' => array(
+				'aktiv-post-sm-buttons' => array(
+					'type' => 'bool',
+					'title' => __('Share Buttons in Post Header', 'iwan'),
+					'label' => __('Show social media share buttons in the header of each post', 'iwan'),
+					'default' => $defaultoptions['aktiv-post-sm-buttons'],
+				),
+				'sm-post' => array(
+					'type' => 'urlchecklist',
+					'title' => __('Share Buttons', 'iwan'),
+					'liste' => $default_socialmedia_post,
+				),
 				'aktiv-socialmediabuttons' => array(
 					'type' => 'bool',
-					'title' => __('Buttons aktivieren', 'iwan'),
-					'label' => __('Social Media Buttons auf der Website einblenden', 'iwan'),
+					'title' => __('Follow Buttons in Sidebar', 'iwan'),
+					'label' => __('Show social media link icons on top of the sidebar', 'iwan'),
 					'default' => $defaultoptions['aktiv-socialmediabuttons'],
 				),
 				'sm-list' => array(
 					'type' => 'urlchecklist',
-					'title' => __('Social Media Plattformen', 'iwan'),
+					'title' => __('Social Media Links', 'iwan'),
 					'liste' => $default_socialmedia_liste,
 				),
 			)

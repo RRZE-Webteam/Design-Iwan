@@ -15,7 +15,6 @@
 		<div class="entry-meta">
 			<?php iwan_entry_meta(); ?>
 			<?php edit_post_link( __( 'Edit', 'iwan' ), '<span class="edit-link">', '</span>' ); ?>
-			<?php iwan_socialmedia_icons() ?>
 		</div><!-- .entry-meta -->
 
 		<?php if ( is_single() ) :  ?>

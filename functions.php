@@ -26,6 +26,8 @@
 require( get_template_directory() . '/inc/constants.php' );
 $options = get_option('iwan_theme_options');
 
+require( get_template_directory() . '/inc/theme-options.php' );
+
 
 /*
  * Set up the content width value based on the theme's design.
@@ -143,6 +145,21 @@ function iwan_scripts_styles() {
 	wp_style_add_data( 'iwan-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'iwan_scripts_styles' );
+
+
+/**
+ * Enqueue scripts and styles for the back end.
+ *
+ * @since Iwan 1.0
+ */
+function iwan_admin_style() {
+
+    wp_register_style( 'themeadminstyle', get_template_directory_uri().'/css/admin.css' );
+    wp_enqueue_style( 'themeadminstyle' );
+
+
+}
+add_action( 'admin_enqueue_scripts', 'iwan_admin_style' );
 
 /**
  * Filter the page title.
@@ -275,11 +292,12 @@ if ( ! function_exists( 'iwan_entry_meta' ) ) :
  * @since Iwan 1.0
  */
 function iwan_entry_meta() {
-	if ( is_sticky() && is_home() && ! is_paged() )
+	if ( is_sticky() && is_home() && ! is_paged() ) {
 		echo '<span class="featured-post">'/* . __( 'Sticky', 'iwan' )*/ . '</span>';
-
-	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
+	}
+	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() ) {
 		iwan_entry_date();
+	}
 
 	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( __( ', ', 'iwan' ) );
@@ -301,6 +319,12 @@ function iwan_entry_meta() {
 			get_the_author()
 		);
 	}
+
+	// Social Media Share Icons
+	if ( 'post' == get_post_type() ) {
+		iwan_post_socialmedia_icons();
+	}
+
 }
 endif;
 
@@ -502,8 +526,9 @@ add_filter('excerpt_more', 'new_excerpt_more');
 * Breadcrumb
 */
 function iwan_breadcrumbs() {
+	global $options;
 	$delimiter = '&raquo;';
-	$home = __('Home','iwan'); // text for the 'Home' link
+	$home = $options['text-startseite']; // text for the 'Home' link
 	$before = '<span class="current">'; // tag before the current crumb
 	$after = '</span>'; // tag after the current crumb
 
@@ -593,11 +618,11 @@ function iwan_breadcrumbs() {
 }
 
 
-if ( ! function_exists( 'get_iwan_socialmediaicons' ) ) :
+if ( ! function_exists( 'get_iwan_socialmediabuttons' ) ) :
 /**
- * Displays Social Media Icons
+ * Displays Social Media Icons on top of the Sidebar
  */
-function get_iwan_socialmediaicons() {
+function get_iwan_socialmediabuttons() {
     global $options;
     global $default_socialmedia_liste;
     $zeigeoption = $options['aktiv-socialmediabuttons'];
@@ -607,7 +632,7 @@ function get_iwan_socialmediaicons() {
     }
     $result = '';
     $links = '';
-    $result .= '<div class="socialmedia_iconbar">';
+    $result .= '<aside id="socialmedia_iconbar" class="widget clear">';
     $result .=  '<ul class="socialmedia">';
     foreach ( $default_socialmedia_liste as $entry => $listdata ) {
         $value = '';
@@ -621,7 +646,7 @@ function get_iwan_socialmediaicons() {
                 $active = $options['sm-list'][$entry]['active'];
         }
         if (($active ==1) && ($value)) {
-            $links .= '<li><a class="icon_'.$entry.'" href="'.$value.'">';
+            $links .= '<li><a class="icon_'.$entry.'" href="'.$value.'" title="'.$listdata['name'].'">';
             $links .=  $listdata['name'].'</a></li>';
 	    $links .= "\n";
         }
@@ -630,7 +655,7 @@ function get_iwan_socialmediaicons() {
     if (strlen($links) > 1) {
 	$result .= $links;
 	$result .= '</ul>';
-	$result .= '</div>';
+	$result .= '</aside>';
 	echo $result;
     } else {
 	return;
@@ -640,6 +665,76 @@ function get_iwan_socialmediaicons() {
 }
 endif;
 
+if ( ! function_exists( 'iwan_post_socialmedia_icons' ) ) :
+/**
+ * Display social media icons on every post
+ */
+	function iwan_post_socialmedia_icons() {
+		global $post;
+		global $options;
+		global $default_socialmedia_post;
+		$zeigeoption = $options['aktiv-post-sm-buttons'];
+
+		if ($zeigeoption != 1) {
+			return;
+		}
+		$links = '<div class="sm-box">';
+
+		foreach ( $default_socialmedia_post as $entry => $listdata ) {
+			$value = '';
+			$active = 0;
+			if (isset($options['sm-post'][$entry]['content'])) {
+					$value = $options['sm-post'][$entry]['content'];
+			} else {
+					$value = $default_socialmedia_post[$entry]['content'];
+			 }
+			 if (isset($options['sm-post'][$entry]['active'])) {
+					$active = $options['sm-post'][$entry]['active'];
+			}
+			if (($active ==1) && ($value)) {
+				$links .= '<a class="sm-'.$entry.'" href="'.$value.'" title="'.$listdata['name'].'">';
+				$links .= '<span class="sm-icon"></span>';
+				$links .= '<span class="sm-text screen-reader-text">';
+				$links .=  $listdata['name'].'</a>';
+				$links .= "\n";
+			}
+		}
+
+		$links.= '</div>';
+
+		if (strlen($links) > 1) {
+			echo $links;
+		} else {
+			return;
+		}
+	}
+endif;
+
+
+
+if ( ! function_exists( 'get_iwan_sidebar_buttons' ) ) :
+/**
+ * Displays Anmeldebutton
+ */
+function get_iwan_sidebar_buttons() {
+	global $options;
+	if (isset($options['aktiv-buttons']) && ($options['aktiv-buttons']==1)) {
+		echo '<aside id="buttons" class="widget">';
+		if (isset($options['aktiv-anmeldebutton']) && ($options['aktiv-anmeldebutton']==1)
+				&& isset($options['url-anmeldebutton']) ) {
+			echo '<a href="'.$options['url-anmeldebutton'].'" class="button breit '.$options['color-anmeldebutton'].'">'.$options['title-anmeldebutton'].'</a>';
+			echo "\n";
+		}
+		if (isset($options['aktiv-cfpbutton']) && ($options['aktiv-cfpbutton']==1) && isset($options['url-cfpbutton']) ) {
+			echo '<a href="'.$options['url-cfpbutton'].'" class="button breit '.$options['color-cfpbutton'].'">'.$options['title-cfpbutton'].'</a>';
+			echo "\n";
+		}
+		echo '</aside>';
+	}
+}
+
+endif;
+
 
 
 if ( ! function_exists( 'get_iwan_opengraphinfo' ) ) :
@@ -647,10 +742,9 @@ if ( ! function_exists( 'get_iwan_opengraphinfo' ) ) :
  * Assemble Open Graph Information for Facebook
  */
 	function get_iwan_opengraphinfo() {
-		global $post, $posts;
-		$first_img = '';
-		$ogimage = '';
+		global $post;
 
+		$ogimage = '';
 		if (is_single() && ! empty( get_the_post_thumbnail($post->ID))) :
 			$ogimage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 		elseif (is_single() && empty ( get_the_post_thumbnail($post->ID) )) :
@@ -658,18 +752,32 @@ if ( ! function_exists( 'get_iwan_opengraphinfo' ) ) :
 		elseif ( ! empty( get_header_image() ) ):
 			$ogimage = get_header_image();
 		endif;
+
+		$ogtitle = '';
+		if (is_home()) :
+			$ogtitle = get_bloginfo ('title');
+		elseif (is_single() || is_page()) :
+			$ogtitle = get_the_title();
+		elseif (is_category()) :
+			$ogtitle = sprintf( __( 'Category Archives: %s', 'iwan' ), single_cat_title( '', false ) );
+		elseif (is_tag()) :
+			$ogtitle = sprintf( __( 'Tag Archives: %s', 'iwan' ), single_tag_title( '', false ) );
+		endif;
 	?>
 
-		<meta property="og:title" content="<?php bloginfo('name'); ?>" />
+		<meta property="og:title" content="<?php echo $ogtitle; ?>" />
 		<meta property="og:description" content="<?php bloginfo ( 'description' ); ?>" />
 		<meta property="og:image" content="<?php echo $ogimage; ?>" />
-		<meta property="og:url" content="<?php get_permalink($post->ID); ?>" />
+		<meta property="og:url" content="<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
 		<meta property="og:locale" content="<?php bloginfo('language'); ?>" />
 		<meta property="og:type" content="website" />
 
 	<?php }
 
 endif;
+
+
+
 
 if ( ! function_exists( 'get_iwan_first_image_url' ) ) :
 /**
@@ -681,37 +789,15 @@ if ( ! function_exists( 'get_iwan_first_image_url' ) ) :
 		ob_start();
 		ob_end_clean();
 		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-		$first_img = $matches[1][0];
-
-		if(empty($first_img) && ! empty( get_header_image() ) ) {
+		if ($output != 0) {
+			$first_img = $matches[1][0];
+		} elseif(($output == 0) && ! empty( get_header_image() ) ) {
 			$first_img = get_header_image();
 		}
 		return $first_img;
 	}
 endif;
 
-if ( ! function_exists( 'iwan_socialmedia_icons' ) ) :
-/**
- * Display social media icons on every post
- */
-	function iwan_socialmedia_icons() {
-		global $post;
-		$facebookshare ='https://www.facebook.com/sharer/sharer.php?u='. get_permalink($post->ID);
-		$twittershare ='https://twitter.com/intent/tweet?url=' . get_permalink($post->ID) . '&text='. get_the_title() .'&via=uniFAU';
-		?>
-		<div class="sm-box">
-			<a href="<?php echo $facebookshare ?>" class="sm-facebook" title="<?php echo __('Share on Facebook','iwan') ?>">
-				<span class="sm-icon"></span>
-				<span class="sm-text screen-reader-text"><?php echo __('Share on Facebook','iwan') ?></span>
-			</a>
-			<a href="<?php echo $twittershare ?>" class="sm-twitter" title="<?php echo __('Share on Twitter','iwan') ?>">
-				<span class="sm-icon"></span>
-				<span class="sm-text screen-reader-text"><?php echo __('Share on Twitter','iwan') ?></span>
-			</a>
-		</div>
-	<?php }
-
-endif;
 
 
 if ( ! function_exists( 'iwan_post_teaser' ) ) :
