@@ -672,7 +672,7 @@ if ( ! function_exists( 'iwan_post_socialmedia_icons' ) ) :
 	function iwan_post_socialmedia_icons() {
 		global $post;
 		global $options;
-		global $default_socialmedia_post;
+		global $default_socialmedia_post_liste;
 		$zeigeoption = $options['aktiv-post-sm-buttons'];
 
 		if ($zeigeoption != 1) {
@@ -680,24 +680,36 @@ if ( ! function_exists( 'iwan_post_socialmedia_icons' ) ) :
 		}
 		$links = '<div class="sm-box">';
 
-		foreach ( $default_socialmedia_post as $entry => $listdata ) {
-			$value = '';
-			$active = 0;
-			if (isset($options['sm-post'][$entry]['content'])) {
-					$value = $options['sm-post'][$entry]['content'];
-			} else {
-					$value = $default_socialmedia_post[$entry]['content'];
-			 }
-			 if (isset($options['sm-post'][$entry]['active'])) {
-					$active = $options['sm-post'][$entry]['active'];
+		//Facebook link
+		$fb_active = $options['aktiv-facebook-share'];
+		$fb_title = $default_socialmedia_post_liste['facebook_share']['name'];
+		$fb_text = $default_socialmedia_post_liste['facebook_share']['link_title'];
+		$fb_link = $default_socialmedia_post_liste['facebook_share']['link'];
+		if (isset($fb_active) && ($fb_active ==1)) {
+			$links .= '<a class="sm-' . strtolower($fb_title) . '_share" href="' . $fb_link . get_permalink() . '" title="' . $fb_text .'" target="_blank">';
+			$links .= '<span class="sm-icon"></span>';
+			$links .= '<span class="sm-text screen-reader-text">';
+			$links .=  $fb_text . '</a>';
+			$links .= "\n";
+		}
+
+		//Twitter link
+		$tw_active = $options['aktiv-twitter-share'];
+		$tw_title = $default_socialmedia_post_liste['twitter_share']['name'];
+		$tw_text = $default_socialmedia_post_liste['twitter_share']['link_title'];
+		$tw_link = $default_socialmedia_post_liste['twitter_share']['link'];
+		$tw_via = $options['via-twitter'];
+		if (isset($tw_active) && ($tw_active ==1)) {
+			$links .= '<a class="sm-' . strtolower($tw_title) . '_share" href=" ' . $tw_link . get_permalink();
+			if (isset ($tw_via) && ($tw_via != '')) {
+				$links .= '&via=' . $tw_via;
 			}
-			if (($active ==1) && ($value)) {
-				$links .= '<a class="sm-'.$entry.'" href="'.$value.'" title="'.$listdata['name'].'">';
-				$links .= '<span class="sm-icon"></span>';
-				$links .= '<span class="sm-text screen-reader-text">';
-				$links .=  $listdata['name'].'</a>';
-				$links .= "\n";
-			}
+			$links .= '" title="' . $tw_text;
+			$links .= '" target="_blank">';
+			$links .= '<span class="sm-icon"></span>';
+			$links .= '<span class="sm-text screen-reader-text">';
+			$links .=  $tw_text . '</a>';
+			$links .= "\n";
 		}
 
 		$links.= '</div>';

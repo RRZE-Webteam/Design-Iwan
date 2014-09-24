@@ -17,6 +17,8 @@ $defaultoptions = array(
 	'src_socialmediabuttons' => '/css/basemod_socialmediaicons.css',
 	'aktiv-socialmediabuttons' => 1,
 	'aktiv-post-sm-buttons' => 1,
+	'aktiv-facebook-share' => 1,
+	'aktiv-twitter-share' => 1,
 	'aktiv-autoren' => 1,
 	'aktiv-commentreplylink' => 0,
 	'default_comment_notes_before' => '<p class="comment-notes">' . __('Deine E-Mail-Adresse wird nicht ver&ouml;ffentlicht. Erforderliche Felder sind markiert <span class="required">*</span>', 'iwan') . '</p>',
@@ -71,23 +73,24 @@ $defaultoptions = array(
 	'yt-content-height' => 500,
 );
 
+
 /*
- * Liste Social Media on Post Header
+ * Liste Social Media
  */
-$default_socialmedia_post = array(
+$default_socialmedia_post_liste = array(
 	'facebook_share' => array(
-		'name' => __('Share on Facebook','iwan'),
-		'content' => 'https://www.facebook.com/sharer/sharer.php?u=' . get_bloginfo('url'),
-		'active' => 1,
+		'name' => 'Facebook',
+		'link' => 'https://www.facebook.com/sharer/sharer.php?u=',
+		'link_title' => __('Share on Facebook', 'iwan'),
 	),
 	'twitter_share' => array(
-		'name' => __('Share on Twitter','iwan'),
-		'content' => 'https://twitter.com/intent/tweet?&via=uniFAU&url=' . get_bloginfo('url'),
-		'active' => 1,
+		'name' => 'Twitter',
+		'link' => 'https://twitter.com/intent/tweet?&url=',
+		'link_title' => __('Share on Twitter', 'iwan'),
 	),
 );
 
-	/*
+/*
  * Liste Social Media
  */
 $default_socialmedia_liste = array(
@@ -439,27 +442,57 @@ $setoptions = array(
 		'socialmedia' => array(
 			'tabtitle' => __('Social Media', 'iwan'),
 			'fields' => array(
+				'post-icons' => array(
+					'type' => 'section',
+					'title' => __('Share Icons in Post Header', 'iwan'),
+				),
 				'aktiv-post-sm-buttons' => array(
 					'type' => 'bool',
-					'title' => __('Share Buttons in Post Header', 'iwan'),
+					'title' => __('Show', 'iwan'),
 					'label' => __('Show social media share buttons in the header of each post', 'iwan'),
 					'default' => $defaultoptions['aktiv-post-sm-buttons'],
+					'parent' => 'post-icons',
 				),
-				'sm-post' => array(
-					'type' => 'urlchecklist',
-					'title' => __('Share Buttons', 'iwan'),
-					'liste' => $default_socialmedia_post,
+				'aktiv-facebook-share' => array(
+					'type' => 'bool',
+					'title' => __('Facebook', 'iwan'),
+					'label' => __('Show "Share on Facebook" icon.', 'iwan'),
+					'link' => 'https://www.facebook.com/sharer/sharer.php?u=',
+					'link_title' => __('Share on Facebook', 'iwan'),
+					'default' => $defaultoptions['aktiv-facebook-share'],
+					'parent' => 'post-icons',
+				),
+				'aktiv-twitter-share' => array(
+					'type' => 'bool',
+					'title' => __('Twitter', 'iwan'),
+					'label' => __('Show "Share on Twitter" icon.', 'iwan'),
+					'link' => 'https://twitter.com/intent/tweet?url=',
+					'link_title' => __('Share on Twitter', 'iwan'),
+					'default' => $defaultoptions['aktiv-twitter-share'],
+					'parent' => 'post-icons',
+				),
+				'via-twitter' => array(
+					'type' => 'text',
+					'title' => __('Twitter via (optional)', 'iwan'),
+					'label' => __('Your Twitter user name. Appears appended to Tweet text as via @username. The Twitter account may appear in a list of recommended accounts to follow.', 'iwan'),
+					'parent' => 'post-icons',
+				),
+				'site-icons' => array(
+					'type' => 'section',
+					'title' => __('Follow Icons in Sidebar', 'iwan'),
 				),
 				'aktiv-socialmediabuttons' => array(
 					'type' => 'bool',
-					'title' => __('Follow Buttons in Sidebar', 'iwan'),
+					'title' => __('Show', 'iwan'),
 					'label' => __('Show social media link icons on top of the sidebar', 'iwan'),
 					'default' => $defaultoptions['aktiv-socialmediabuttons'],
+					'parent' => 'site-icons',
 				),
 				'sm-list' => array(
 					'type' => 'urlchecklist',
-					'title' => __('Social Media Links', 'iwan'),
+					'title' => __('Links', 'iwan'),
 					'liste' => $default_socialmedia_liste,
+					'parent' => 'post-icons',
 				),
 			)
 		),
