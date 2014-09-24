@@ -107,13 +107,20 @@ function iwan_setup() {
 	 * "standard" posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 604, 270, true );
+	set_post_thumbnail_size( 300, 200);
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
 add_action( 'after_setup_theme', 'iwan_setup' );
 
+/*function setoptions() {
+	global $setoptions;
+	global $setoptionsX;
+	$setoptions = $setoptionsX;
+}
+
+add_action('init','setoptions');*/
 /**
  * Enqueue scripts and styles for the front end.
  *

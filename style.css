@@ -1227,11 +1227,9 @@ div.nav-menu > ul {
 .nav-menu .sub-menu,
 .nav-menu .children {
 	background-color: #003366;
-	border: 2px solid #f7f5e7;
 	border-top: 0;
 	padding: 0;
 	position: absolute;
-	left: -2px;
 	z-index: 99999;
 	height: 1px;
 	width: 1px;
@@ -1242,8 +1240,7 @@ div.nav-menu > ul {
 .nav-menu .sub-menu ul,
 .nav-menu .children ul {
 	border-left: 0;
-	left: 100%;
-	top: 0;
+	left: 10px;
 }
 
 ul.nav-menu ul a,

@@ -377,7 +377,7 @@ function theme_options_do_page($tab = '') {
 				</div>
 
 				<p class="submit">
-	                <input type="submit" class="button-primary" value="<?php _e('Save Options', 'iwan'); ?>" />
+	                <input type="submit" class="button-primary" value="<?php echo __('Save Options', 'iwan'); ?>" />
 				</p>
 			</form>
 		</div>

@@ -326,7 +326,7 @@ $setoptions = array(
 			'fields' => array(
 				'teaser-title-maxlength' => array(
 					'type' => 'number',
-					'title' => __('Textl&auml;nge', 'iwan'),
+					'title' => __('Text length', 'iwan'),
 					'label' => __('Maximale Textl&auml;nge des Titels im Teaser.', 'iwan'),
 					'default' => $defaultoptions['teaser-title-maxlength'],
 				),
