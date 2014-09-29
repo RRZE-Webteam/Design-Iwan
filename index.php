@@ -14,7 +14,11 @@
  * @since Iwan 1.0
  */
 
-get_header(); ?>
+get_header();
+global $options;
+global $defaultoptions;
+?>
+
 
 	<div id="primary" class="content-area">
 
@@ -27,7 +31,11 @@ get_header(); ?>
 
 			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php
+
+				get_template_part( 'content', get_post_format() );
+
+				?>
 			<?php endwhile; ?>
 
 			<?php iwan_paging_nav(); ?>

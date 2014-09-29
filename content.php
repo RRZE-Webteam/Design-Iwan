@@ -8,6 +8,7 @@
  * @subpackage Iwan
  * @since Iwan 1.0
  */
+global $options;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -28,7 +29,11 @@
 
 	<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 		<div class="entry-thumbnail">
-			<?php the_post_thumbnail(); ?>
+			<?php if ( !is_single() ) :  ?>
+				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php get_iwan_thumbnailcode(); ?></a>
+			<?php else : ?>
+				<?php get_iwan_thumbnailcode(); ?>
+			<?php endif; // is_single() ?>
 		</div>
 	<?php endif; ?>
 
@@ -42,21 +47,22 @@
 	<?php else : ?>
 
 	<div class="entry-summary">
-		<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'iwan' ) ); ?>
+		<?php get_iwan_custom_excerpt();?>
+		<?php //the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'iwan' ) ); ?>
 		<?php /*the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'iwan' ) ); */ ?>
 	</div><!-- .entry-summary -->
 
 	<?php endif; ?>
 
 	<footer class="entry-meta">
+		<?php if (($options['aktiv-autoren'] == 1) && is_single()) : ?>
+			<div class="author"><?php _e('written by ','iwan'); the_author_posts_link(); ?></div>
+		<?php endif; ?>
 		<?php if ( comments_open() && is_single() ) : ?>
 			<div class="comments-link">
 				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a comment', 'iwan' ) . '</span>', __( 'One comment so far', 'iwan' ), __( 'View all % comments', 'iwan' ) ); ?>
 			</div><!-- .comments-link -->
 		<?php endif; // comments_open() ?>
 
-		<?php if ( is_single() && get_the_author_meta( 'description' ) && is_multi_author() ) : ?>
-			<?php get_template_part( 'author-bio' ); ?>
-		<?php endif; ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post -->

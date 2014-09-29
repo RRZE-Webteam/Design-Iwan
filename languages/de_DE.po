@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Iwan (das Schreckliche) v1.0\n"
+"Project-Id-Version: Iwan v1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-09-24 14:32+0100\n"
+"PO-Revision-Date: 2014-09-29 15:42:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -11,890 +11,700 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
 "X-Poedit-Basepath: ../\n"
-"X-Textdomain-Support: yes\n"
-"Language: de_DE\n"
+"X-Poedit-Bookmarks: \n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
 
-# @ iwan
 #: taxonomy-post_format.php:23
 #, php-format
+#@ iwan
 msgid "%s Archives"
 msgstr "%s Archiv"
 
-# @ iwan
 #: comments.php:46
+#@ iwan
 msgid "&larr; Older Comments"
 msgstr "&larr; Ältere Kommentare"
 
-# @ iwan
-#: functions.php:303 functions.php:309
+#: functions.php:320
+#: functions.php:326
+#@ iwan
 msgid ", "
 msgstr ", "
 
-# @ iwan
-#: functions.php:344
+#: functions.php:359
 #, php-format
+#@ iwan
 msgctxt "1: post format name. 2: date"
 msgid "%1$s on %2$s"
 msgstr "%1$s um %2$s"
 
-# @ iwan
 #: image.php:22
 #, php-format
-msgid ""
-"<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
-"datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" "
-"rel=\"gallery\">%5$s</a></span>"
-msgstr ""
-"<span class=\"attachment-meta\">Veröffentlicht am <time class=\"entry-date\" "
-"datetime=\"%1$s\">%2$s</time> bei <a href=\"%3$s\" title=\"Zurück zu %4$s\" "
-"rel=\"gallery\">%5$s</a>.</span>"
+#@ iwan
+msgid "<span class=\"attachment-meta\">Published on <time class=\"entry-date\" datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" rel=\"gallery\">%5$s</a></span>"
+msgstr "<span class=\"attachment-meta\">Veröffentlicht am <time class=\"entry-date\" datetime=\"%1$s\">%2$s</time> bei <a href=\"%3$s\" title=\"Zurück zu %4$s\" rel=\"gallery\">%5$s</a>.</span>"
 
-# @ iwan
-#: functions.php:244
+#: functions.php:257
+#@ iwan
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Ältere Artikel"
 
-# @ iwan
 #: image.php:51
+#@ iwan
 msgid "<span class=\"meta-nav\">&larr;</span> Previous"
 msgstr "<span class=\"meta-nav\">&larr;</span> Zurück"
 
-# @ iwan
 #: author-bio.php:26
 #, php-format
+#@ iwan
 msgid "About %s"
 msgstr "Über %s"
 
-# @ iwan
 #: author.php:31
 #, php-format
+#@ iwan
 msgid "All posts by %s"
 msgstr "Alle Artikel von %s"
 
-# @ iwan
-#: functions.php:207
+#: functions.php:218
+#@ iwan
 msgid "Appears in the footer section of the site."
 msgstr "Erscheint in der Fußzeile der Seite."
 
-# @ iwan
-#: functions.php:217
+#: functions.php:228
+#@ iwan
 msgid "Appears on posts and pages in the sidebar."
 msgstr "Erscheint bei Beiträgen und Seiten in der Seitenleiste."
 
-# @ iwan
 #: archive.php:35
+#@ iwan
 msgid "Archives"
 msgstr "Archiv"
 
-# @ iwan
-#: category.php:24 functions.php:774
+#: category.php:24
+#: functions.php:790
 #, php-format
+#@ iwan
 msgid "Category Archives: %s"
 msgstr "Kategorie-Archiv: %s"
 
-# @ iwan
 #: comments.php:45
+#@ iwan
 msgid "Comment navigation"
 msgstr "Kommentar-Navigation"
 
-# @ iwan
 #: comments.php:52
+#@ iwan
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-# @ iwan
-#: content-aside.php:13 content-audio.php:29 content-gallery.php:29
-#: content-image.php:28 content-link.php:24 content-quote.php:13
-#: content-status.php:13 content-video.php:28 content.php:38 content.php:45
+#: content-aside.php:13
+#: content-audio.php:29
+#: content-gallery.php:29
+#: content-image.php:28
+#: content-link.php:24
+#: content-quote.php:13
+#: content-status.php:13
+#: content-video.php:28
+#: content.php:43
+#@ iwan
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Weiterlesen <span class=\"meta-nav\">&rarr;</span>"
 
-# @ iwan
 #: archive.php:29
 #, php-format
+#@ iwan
 msgid "Daily Archives: %s"
 msgstr "Archiv für den Tag: %s"
 
-# @ iwan
-#: content-aside.php:20 content-audio.php:15 content-chat.php:29
-#: content-gallery.php:15 content-image.php:15 content-link.php:15
-#: content-quote.php:25 content-status.php:19 content-video.php:15
-#: content.php:17 image.php:44 page.php:43
+#: content-aside.php:20
+#: content-audio.php:15
+#: content-chat.php:29
+#: content-gallery.php:15
+#: content-image.php:15
+#: content-link.php:15
+#: content-quote.php:25
+#: content-status.php:19
+#: content-video.php:15
+#: content.php:18
+#: image.php:44
+#: page.php:43
+#@ iwan
 msgid "Edit"
 msgstr "Bearbeiten"
 
-# @ iwan
 #: image.php:39
+#@ iwan
 msgid "Full resolution"
 msgstr "Volle Auflösung"
 
-# @ iwan
 #: 404.php:22
+#@ iwan
 msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr ""
-"Es sieht so aus, als ob wir nicht das finden könnten, wonach Sie gesucht "
-"haben. Möglicherweise hilft die Suchfunktion."
+msgstr "Es sieht so aus, als ob wir nicht das finden könnten, wonach Sie gesucht haben. Möglicherweise hilft die Suchfunktion."
 
-# @ iwan
 #: content-none.php:27
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-"Es sieht so aus, als ob wir nicht das finden könnten, wonach Sie gesucht "
-"haben. Möglicherweise hilft die Suchfunktion."
+#@ iwan
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Es sieht so aus, als ob wir nicht das finden könnten, wonach Sie gesucht haben. Möglicherweise hilft die Suchfunktion."
 
-# @ iwan
-#: content-gallery.php:39 content-image.php:35 content-quote.php:22
-#: content-video.php:35 content.php:54
+#: content-gallery.php:39
+#: content-image.php:35
+#: content-quote.php:22
+#: content-video.php:35
+#: content.php:63
+#@ iwan
 msgid "Leave a comment"
 msgstr "Hinterlassen Sie einen Kommentar"
 
-# @ iwan
 #: image.php:38
+#@ iwan
 msgid "Link to full-size image"
 msgstr "Link zum Bild in Originalgröße"
 
-# @ iwan
-#: functions.php:205
+#: functions.php:216
+#@ iwan
 msgid "Main Widget Area"
 msgstr "Haupt-Widgetbereich"
 
-# @ iwan
 #: header.php:48
+#@ iwan
 msgid "Menu"
 msgstr "Menü"
 
-# @ iwan
 #: archive.php:31
 #, php-format
+#@ iwan
 msgid "Monthly Archives: %s"
 msgstr "Archiv für den Monat: %s"
 
-# @ iwan
-#: functions.php:103
+#: functions.php:105
+#@ iwan
 msgid "Navigation Menu"
 msgstr "Navigation Menü"
 
-# @ iwan
 #: comments.php:47
+#@ iwan
 msgid "Newer Comments &rarr;"
 msgstr "Neuere Kommentare &rarr;"
 
-# @ iwan
-#: functions.php:248
+#: functions.php:261
+#@ iwan
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Neuere Artikel <span class=\"meta-nav\">&rarr;</span>"
 
-# @ iwan
 #: image.php:52
+#@ iwan
 msgid "Next <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Weiter <span class=\"meta-nav\">&rarr;</span>"
 
-# @ iwan
-#: functions.php:278
+#: functions.php:293
 #, php-format
+#@ iwan
 msgctxt "Next post link"
 msgid "%title <span class=\"meta-nav\">&rarr;</span>"
 msgstr "%title <span class=\"meta-nav\">&rarr;</span>"
 
-# @ iwan
 #: 404.php:16
+#@ iwan
 msgid "Not Found"
 msgstr "Nicht gefunden"
 
-# @ iwan
 #: content-none.php:12
+#@ iwan
 msgid "Nothing Found"
 msgstr "Nichts gefunden"
 
-# @ iwan
-#: content-gallery.php:39 content-image.php:35 content-quote.php:22
-#: content-video.php:35 content.php:54
+#: content-gallery.php:39
+#: content-image.php:35
+#: content-quote.php:22
+#: content-video.php:35
+#: content.php:63
+#@ iwan
 msgid "One comment so far"
 msgstr "Bisher ein Kommentar"
 
-# @ iwan
-#: functions.php:192
+#: functions.php:202
 #, php-format
+#@ iwan
 msgid "Page %s"
 msgstr "Seite %s"
 
-# @ iwan
-#: content-aside.php:14 content-audio.php:30 content-chat.php:24
-#: content-gallery.php:30 content-image.php:29 content-link.php:25
-#: content-quote.php:14 content-status.php:14 content-video.php:29
-#: content.php:39 image.php:70 page.php:39
+#: content-aside.php:14
+#: content-audio.php:30
+#: content-chat.php:24
+#: content-gallery.php:30
+#: content-image.php:29
+#: content-link.php:25
+#: content-quote.php:14
+#: content-status.php:14
+#: content-video.php:29
+#: content.php:44
+#: image.php:70
+#: page.php:39
+#@ iwan
 msgid "Pages:"
 msgstr "Seiten:"
 
-# @ iwan
-#: functions.php:350
+#: functions.php:363
 #, php-format
+#@ iwan
 msgid "Permalink to %s"
 msgstr "Permanentlink zu %s"
 
-# @ iwan
-#: functions.php:274
+#: functions.php:289
+#@ iwan
 msgid "Post navigation"
 msgstr "Beitragsnavigation"
 
-# @ iwan
-#: functions.php:240
+#: functions.php:253
+#@ iwan
 msgid "Posts navigation"
 msgstr "Beitrags-Navigation"
 
-# @ iwan
-#: functions.php:277
+#: functions.php:292
 #, php-format
+#@ iwan
 msgctxt "Previous post link"
 msgid "<span class=\"meta-nav\">&larr;</span> %title"
 msgstr "<span class=\"meta-nav\">&larr;</span> %title"
 
-# @ iwan
 #: content-none.php:18
 #, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-"Bereit, um Ihren ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Starten "
-"Sie hier </a>."
+#@ iwan
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Bereit, um Ihren ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Starten Sie hier </a>."
 
-# @ iwan
 #: search.php:18
 #, php-format
+#@ iwan
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für: %s"
 
-# @ iwan
-#: functions.php:215
+#: functions.php:226
+#@ iwan
 msgid "Secondary Widget Area"
 msgstr "Zweiter Widgetbereich"
 
-# @ iwan
 #: header.php:49
+#@ iwan
 msgid "Skip to content"
 msgstr "Zum Inhalt springen"
 
-# @ iwan
 #: content-none.php:22
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with "
-"different keywords."
-msgstr ""
-"Entschuldigen Sie, aber es konnte nichts gefunden werden. Versuchen Sie es "
-"mit anderen Schlüsselwörtern erneut."
+#@ iwan
+msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
+msgstr "Leider konnte der gew&uuml;nschte Inhalt nicht gefunden werden. M&ouml;glicherweise hilft die Suchfunktion."
 
-# @ iwan
-#: functions.php:776 tag.php:21
+#: functions.php:792
+#: tag.php:21
 #, php-format
+#@ iwan
 msgid "Tag Archives: %s"
 msgstr "Schlagwort-Archiv: %s"
 
-# @ iwan
 #: 404.php:21
+#@ iwan
 msgid "This is somewhat embarrassing, isn&rsquo;t it?"
-msgstr "Das ist etwas peinlich, nicht wahr?"
+msgstr "Es tut uns leid."
 
-# @ iwan
-#: content-gallery.php:39 content-image.php:35 content-quote.php:22
-#: content-video.php:35 content.php:54
+#: content-gallery.php:39
+#: content-image.php:35
+#: content-quote.php:22
+#: content-video.php:35
+#: content.php:63
+#@ iwan
 msgid "View all % comments"
 msgstr "Zeige alle % Kommentare"
 
-# @ iwan
-#: functions.php:318
+#: functions.php:333
 #, php-format
+#@ iwan
 msgid "View all posts by %s"
 msgstr "Zeige alle Artikel von %s"
 
-# @ iwan
 #: author-bio.php:30
 #, php-format
+#@ iwan
 msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Zeige alle Artikel von %s <span class=\"meta-nav\">&rarr;</span>"
 
-# @ iwan
 #: archive.php:33
 #, php-format
+#@ iwan
 msgid "Yearly Archives: %s"
 msgstr "Archiv für das Jahr: %s"
 
-# @ iwan
 #: comments.php:25
 #, php-format
+#@ iwan
 msgctxt "comments title"
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "Ein Kommentar zu &bdquo;%2$s&ldquo;"
 msgstr[1] "%1$s Kommentare zu &bdquo;%2$s&ldquo;"
 
-# @ iwan
 #: archive.php:31
+#@ iwan
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
 
-# @ iwan
 #: archive.php:33
+#@ iwan
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
 
-# @ iwan
-#: inc/back-compat.php:37 inc/back-compat.php:47 inc/back-compat.php:60
+#: inc/back-compat.php:37
+#: inc/back-compat.php:47
+#: inc/back-compat.php:60
 #, php-format
-msgid ""
-"Iwan requires at least WordPress version 3.6. You are running version %s. "
-"Please upgrade and try again."
-msgstr ""
-"Iwan ben&ouml;tigt mindestens Wordpress Version 3.6. Sie haben Version %s. "
-"Bitte aktualisieren Sie Wordpress und versuchen Sie es erneut."
+#@ iwan
+msgid "Iwan requires at least WordPress version 3.6. You are running version %s. Please upgrade and try again."
+msgstr "Iwan ben&ouml;tigt mindestens Wordpress Version 3.6. Sie haben Version %s. Bitte aktualisieren Sie Wordpress und versuchen Sie es erneut."
 
-# @ iwan
 #: inc/custom-header.php:49
+#@ iwan
 msgctxt "header image description"
 msgid "FAU Aktuell"
 msgstr "FAU Aktuell"
 
-# @ iwan
-#: functions.php:520
+#: functions.php:532
+#@ iwan
 msgid "Read more &rarr;"
 msgstr "Weiterlesen &rarr;"
 
-# @ iwan
-#: inc/constants.php:56
+#: inc/constants.php:43
+#@ iwan
 msgid "Home"
 msgstr "Startseite"
 
-# @ iwan
-#: functions.php:535
+#: functions.php:549
+#@ iwan
 msgid "You are here: "
 msgstr "Sie befinden sich hier: "
 
-# @ iwan
-#: functions.php:596
+#: functions.php:610
+#@ iwan
 msgid "Search for "
 msgstr "Suche nach "
 
-# @ iwan
-#: functions.php:598
+#: functions.php:612
+#@ iwan
 msgid "Tag Archives "
 msgstr "Schlagwort-Archiv "
 
-# @ iwan
-#: functions.php:602
+#: functions.php:616
+#@ iwan
 msgid "Articles by "
 msgstr "Beitr&auml;ge von "
 
-# @ iwan
-#: functions.php:549
+#: functions.php:563
+#@ iwan
 msgid "Category Archives "
 msgstr "Kategorie-Archiv "
 
-# @ iwan
-#: functions.php:921 functions.php:929
+#: functions.php:1030
+#: functions.php:1040
+#@ iwan
 msgid "No content"
-msgstr ""
+msgstr "Kein Inhalt."
 
-# @ iwan
-#: inc/constants.php:24
-msgid ""
-"Deine E-Mail-Adresse wird nicht ver&ouml;ffentlicht. Erforderliche Felder "
-"sind markiert <span class=\"required\">*</span>"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:38
-msgid "Topthema"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:84 inc/constants.php:113 inc/constants.php:461
+#: inc/constants.php:71
+#: inc/constants.php:312
+#@ iwan
 msgid "Share on Facebook"
 msgstr "Auf Facebook teilen"
 
-# @ iwan
-#: inc/constants.php:89 inc/constants.php:123 inc/constants.php:470
+#: inc/constants.php:76
+#: inc/constants.php:321
+#@ iwan
 msgid "Share on Twitter"
 msgstr "Auf Twitter teilen"
 
-# @ iwan
-#: inc/constants.php:108
-msgid "Follow us on Facebook"
-msgstr "Zu unserer Facebook-Seite"
-
-# @ iwan
-#: inc/constants.php:118
-msgid "Follow us on Twitter"
-msgstr "Zu unserem Twitter Stream"
-
-# @ iwan
-#: inc/constants.php:193
-msgid "Fakultaeten"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:194
-msgid "Friedrich-Alexander-Universit&auml;t Erlangen-N&uuml;rnberg"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:197
-msgid "Philosophische Fakult&auml;t und Fachbereich Theologie"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:198
-msgid "Rechts- und Wirtschaftswissenschaftliche Fakult&auml;t"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:199
-msgid "Medizinische Fakult&auml;t"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:200
-msgid "Naturwissenschaftliche Fakult&auml;t"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:201
-msgid "Technische Fakult&auml;t"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:204
-msgid "RRZE"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:205
-msgid "Regioanles Rechenzentrum Erlangen"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:208
-msgid "Service-Theke"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:209
-msgid "Informationszentrum Innenstadt"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:210
-msgid "Informationszentrum N&uuml;rnberg"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:211
-msgid "Informationszentrum Halbmondstrasse"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:212
-msgid "Blogdienst"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:213
-msgid "Videoportal"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:214
-msgid "IDM"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:215
-msgid "Aktuelle Meldungen"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:229
-msgid "Design"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:233
+#: inc/constants.php:178
+#@ iwan
 msgid "Home Page Name"
 msgstr "Name der Startseite"
 
-# @ iwan
-#: inc/constants.php:234
+#: inc/constants.php:179
+#@ iwan
 msgid "Home page name for breadcrumb navigation"
 msgstr "Name der Startseite für die Breadcrumb-Navigation"
 
-# @ iwan
-#: inc/constants.php:239
+#: inc/constants.php:208
+#@ iwan
 msgid "Show Authors"
 msgstr "Autoren anzeigen"
 
-# @ iwan
-#: inc/constants.php:240
+#: inc/constants.php:209
+#@ iwan
 msgid "Show and link authors on post single view."
-msgstr "Bei der Anzeige von Artikeln den Autoren anzeigen und verlinken"
+msgstr "Bei der Anzeige von Artikeln die Autoren anzeigen und verlinken"
 
-# @ iwan
-#: inc/constants.php:245
+#: inc/constants.php:214
+#@ iwan
 msgid "Buttons"
 msgstr "Buttons"
 
-# @ iwan
-#: inc/constants.php:249
+#: inc/constants.php:218
+#@ iwan
 msgid "Show buttons"
 msgstr "Buttons anzeigen"
 
-# @ iwan
-#: inc/constants.php:250
+#: inc/constants.php:219
+#@ iwan
 msgid "Show buttons on top of the sidebar"
 msgstr "Buttons oberhalb der Sidebar anzeigen"
 
-# @ iwan
-#: inc/constants.php:256
+#: inc/constants.php:225
+#@ iwan
 msgid "First button"
 msgstr "Erster Button"
 
-# @ iwan
-#: inc/constants.php:257 inc/constants.php:291 inc/constants.php:451
-#: inc/constants.php:486
+#: inc/constants.php:226
+#: inc/constants.php:260
+#: inc/constants.php:302
+#: inc/constants.php:337
+#@ iwan
 msgid "Show"
 msgstr "Anzeigen"
 
-# @ iwan
-#: inc/constants.php:263 inc/constants.php:297
+#: inc/constants.php:232
+#: inc/constants.php:266
+#@ iwan
 msgid "URL"
 msgstr "URL"
 
-# @ iwan
-#: inc/constants.php:264 inc/constants.php:298
+#: inc/constants.php:233
+#: inc/constants.php:267
+#@ iwan
 msgid "Link"
 msgstr "Link"
 
-# @ iwan
-#: inc/constants.php:270 inc/constants.php:304
+#: inc/constants.php:239
+#: inc/constants.php:273
+#@ iwan
 msgid "Link title"
 msgstr "Link-Titel"
 
-# @ iwan
-#: inc/constants.php:271 inc/constants.php:305
+#: inc/constants.php:240
+#: inc/constants.php:274
+#@ iwan
 msgid "Button Text"
 msgstr "Button-Beschriftung"
 
-# @ iwan
-#: inc/constants.php:277 inc/constants.php:311
+#: inc/constants.php:246
+#: inc/constants.php:280
+#@ iwan
 msgid "Color"
 msgstr "Farbe"
 
-# @ iwan
-#: inc/constants.php:278 inc/constants.php:312
+#: inc/constants.php:247
+#: inc/constants.php:281
+#@ iwan
 msgid "Button background color"
 msgstr "Hintergrundfarbe des Buttons"
 
-# @ iwan
-#: inc/constants.php:281 inc/constants.php:315
+#: inc/constants.php:250
+#: inc/constants.php:284
+#@ iwan
 msgid "Grey"
 msgstr "grau"
 
-# @ iwan
-#: inc/constants.php:282 inc/constants.php:316
+#: inc/constants.php:251
+#: inc/constants.php:285
+#@ iwan
 msgid "Yellow"
 msgstr "gelb"
 
-# @ iwan
-#: inc/constants.php:283 inc/constants.php:317
+#: inc/constants.php:252
+#: inc/constants.php:286
+#@ iwan
 msgid "Green"
 msgstr "gr&uuml;n"
 
-# @ iwan
-#: inc/constants.php:284 inc/constants.php:318
+#: inc/constants.php:253
+#: inc/constants.php:287
+#@ iwan
 msgid "Blue"
 msgstr "blau"
 
-# @ iwan
-#: inc/constants.php:290
+#: inc/constants.php:259
+#@ iwan
 msgid "Second button"
 msgstr "Zweiter Button"
 
-# @ iwan
-#: inc/constants.php:325
-msgid "Home Page"
-msgstr "Startseite"
-
-# @ iwan
-#: inc/constants.php:330
-msgid "Maximale Textl&auml;nge des Titels im Teaser."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:335
-msgid "Wortzahl"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:336
-msgid ""
-"Zahl der Worte im Teaser; Die maximale Textl&auml;nge begrenzt diesen Wert "
-"jedoch."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:341
-msgid "Gestaltung Textausz&uuml;ge"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:345
-msgid "Beitr&auml;ge &uuml;ber ganze Breite"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:346
-msgid "Zahl der Beitr&auml;ge, die &uuml;ber die gesamte Inhaltsbreite gehen."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:352
-msgid "Beitr&auml;ge &uuml;ber halbe Breite"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:353
-msgid ""
-"Zahl der Beitr&auml;ge, die in Spalten mit je zwei Beitr&auml;gen "
-"nebeneinander, angezeigt werden."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:360
-msgid "L&auml;nge des Teasertextes (Artikelauszug)"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:361
-msgid ""
-"Maximale Textl&auml;nge f&uuml;r Artikelausz&uuml;ge auf der Startseite."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:367 inc/constants.php:408
-msgid "Titel oben"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:368
-msgid "Titel &uuml;ber Logo/Datumsbox und Text"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:374 inc/constants.php:415
-msgid "Symbolbild/Datumsbox"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:375
-msgid ""
-"Links des Textauszuges das Datum, das Artikelbild, ein Bild des Artikels "
-"oder ein verlinktes Video anzeigen; Abhängig vom Inhalt des Artikels."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:378 inc/constants.php:419
-msgid ""
-"Reihenfolge: Artikelbild, erstes Bild, erstes Video oder Ersatzbild zeigen"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:379 inc/constants.php:420
-msgid ""
-"Reihenfolge: Erstes Bild, Artikelbild, erstes Video oder Ersatzbild zeigen"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:380 inc/constants.php:421
-msgid ""
-"Reihenfolge: Erstes Video, Artikelbild, erstes Bild oder Ersatzbild zeigen"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:381 inc/constants.php:422
-msgid ""
-"Reihenfolge: Erstes Video, erstes Bild, Artikelbild oder Ersatzbild zeigen"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:382 inc/constants.php:423
-msgid "Nichts anzeigen"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:387 inc/constants.php:428
-msgid "Flie&szlig;ender Text"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:388
-msgid "Text umflie&szlig;t das Bild"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:394 inc/constants.php:435
-msgid "Datumszeile"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:395
-msgid "Datumszeile vor dem Text, falls keine Datumsbox angezeigt wird"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:401
-msgid "L&auml;nge des Teasertextes"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:402
-msgid ""
-"Maximale Textl&auml;nge f&uuml;r Artikelausz&uuml;ge (Bei Beitr&auml;gen "
-"&uuml;ber halbe Breite)."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:409
-msgid ""
-"Titel &uuml;ber Logo/Datumsbox und Text (Bei Beitr&auml;gen &uuml;ber halbe "
-"Breite)."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:416
-msgid ""
-"Links des Textauszuges das Datum, das Artikelbild, ein Bild des Artikels "
-"oder ein verlinktes Video anzeigen; Abhängig vom Inhalt des Artikels. (Bei "
-"Beitr&auml;gen &uuml;ber halbe Breite)"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:429
-msgid ""
-"Text umflie&szlig;t das Bild (Bei Beitr&auml;gen &uuml;ber halbe Breite)"
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:436
-msgid ""
-"Datumszeile vor dem Text, falls keine Datumsbox angezeigt wird (Bei "
-"Beitr&auml;gen &uuml;ber halbe Breite)."
-msgstr ""
-
-# @ iwan
-#: inc/constants.php:443
+#: inc/constants.php:294
+#@ iwan
 msgid "Social Media"
 msgstr "Social Media"
 
-# @ iwan
-#: inc/constants.php:452
+#: inc/constants.php:303
+#@ iwan
 msgid "Show social media share buttons in the header of each post"
 msgstr "Zeige Social-Media-Teilen-Buttons in der Kopfzeile jedes Artikels"
 
-# @ iwan
-#: inc/constants.php:487
+#: inc/constants.php:338
+#@ iwan
 msgid "Show social media link icons on top of the sidebar"
 msgstr "Social-Media-Link-Icons oberhalb der Sidebar anzeigen"
 
-# @ iwan
 #: inc/custom-header.php:54
+#@ iwan
 msgctxt "header image description"
 msgid "FAU Blogsystem"
-msgstr ""
+msgstr "FAU Blogsystem"
 
-# @ iwan
-#: inc/theme-options.php:16
-msgid "Theme Iwan Options"
-msgstr ""
-
-# @ iwan
-#: inc/theme-options.php:33
-msgid "Konfigurieren"
-msgstr ""
-
-# @ iwan
-#: inc/theme-options.php:36
-msgid "Optionen wurden gespeichert."
-msgstr ""
-
-# @ iwan
-#: inc/theme-options.php:371
-msgid "Optionen nicht definiert"
-msgstr ""
-
-# @ iwan
-#: inc/theme-options.php:380
+#: inc/theme-options.php:381
+#@ iwan
 msgid "Save Options"
 msgstr "Optionen speichern"
 
-# @ iwan
-#: inc/constants.php:57
+#: inc/constants.php:44
+#@ iwan
 msgid "Back to Home Page"
-msgstr ""
+msgstr "Zur&uuml;ck zur Startseite"
 
-# @ iwan
-#: inc/constants.php:447
+#: inc/constants.php:298
+#@ iwan
 msgid "Share Icons in Post Header"
 msgstr "Share Icons in Post Header anzeigen"
 
-# @ iwan
-#: inc/constants.php:458
+#: inc/constants.php:309
+#@ iwan
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
-# @ iwan
-#: inc/constants.php:459
+#: inc/constants.php:310
+#@ iwan
 msgid "Show \"Share on Facebook\" icon."
 msgstr "Auf \"Share on Facebook\" teilen."
 
-# @ iwan
-#: inc/constants.php:467
+#: inc/constants.php:318
+#@ iwan
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
-# @ iwan
-#: inc/constants.php:468
+#: inc/constants.php:319
+#@ iwan
 msgid "Show \"Share on Twitter\" icon."
 msgstr "\"Share on Twitter\" Icon anzeigen"
 
-# @ iwan
-#: inc/constants.php:476
+#: inc/constants.php:327
+#@ iwan
 msgid "Twitter via (optional)"
-msgstr ""
+msgstr "Twittern via (optional)"
 
-# @ iwan
-#: inc/constants.php:477
-msgid ""
-"Your Twitter user name. Appears appended to Tweet text as via @username. The "
-"Twitter account may appear in a list of recommended accounts to follow."
-msgstr ""
+#: inc/constants.php:328
+#@ iwan
+msgid "Your Twitter user name. Appears appended to Tweet text as via @username. The Twitter account may appear in a list of recommended accounts to follow."
+msgstr "Ihr Twitter-Benutzername. Erscheint hinter dem Tweet-Text als \\\"via @username\\\". Dadurch kann Ihr Twitter-Account in der Liste der empfohlenen Twitteraccounts erscheinen."
 
-# @ iwan
-#: inc/constants.php:482
+#: inc/constants.php:333
+#@ iwan
 msgid "Follow Icons in Sidebar"
-msgstr ""
+msgstr "Social-Media-Icons in der Sidebar"
 
-# @ iwan
-#: inc/constants.php:493
+#: inc/constants.php:344
+#@ iwan
 msgid "Links"
-msgstr ""
+msgstr "Links"
 
-# @ iwan
-#: inc/constants.php:329
-msgid "Text length"
-msgstr "555"
+#: inc/constants.php:174
+#@ iwan
+msgid "Content Options"
+msgstr "Inhaltsoptionen"
+
+#: inc/constants.php:184
+#@ iwan
+msgid "Teaser"
+msgstr "Artikelauszug"
+
+#: inc/theme-options.php:16
+#@ iwan
+msgid "Iwan Theme Options"
+msgstr "Iwan Theme-Optionen"
+
+#: inc/theme-options.php:33
+#@ iwan
+msgid "Options"
+msgstr "Optionen"
+
+#: inc/constants.php:24
+#@ iwan
+msgid "Your email address will not be published. Required fields are marked red."
+msgstr "Deine E-Mail-Adresse wird nicht ver&ouml;ffentlicht. Erforderliche Felder sind markiert"
+
+#: inc/constants.php:188
+#@ iwan
+msgid "Teaser length"
+msgstr "L&auml;nge des Auszugs"
+
+#: inc/constants.php:189
+#@ iwan
+msgid "Maximum length for teasers on home page."
+msgstr "Maximale Textl&auml;nge f&uuml;r Artikelausz&uuml;ge auf der Startseite."
+
+#: inc/constants.php:195
+#@ iwan
+msgid "Teaser image"
+msgstr "Bild im Textauszug"
+
+#: inc/constants.php:196
+#@ iwan
+msgid "Show teaser image if availible and depending on post content."
+msgstr "Links des Textauszuges  – wenn vorhanden – das Beitragsbild, ein Bild des Artikels, ein verlinktes Video oder ein Standardbild anzeigen."
+
+#: inc/constants.php:199
+#@ iwan
+msgid "Featured image > first image > first video > default image"
+msgstr "Beitragsbild > erstes Bild > erstes Video > Standardbild"
+
+#: inc/constants.php:200
+#@ iwan
+msgid "First image > featured image > first video > default image"
+msgstr "Erstes Bild > Beitragsbild > erstes Video > Standardbild"
+
+#: inc/constants.php:201
+#@ iwan
+msgid "First video > featured image > first image > default image"
+msgstr "Erstes Video > Beitragsbild > erstes Bild > Standardbild"
+
+#: inc/constants.php:202
+#@ iwan
+msgid "First video > first image > featured image > default image"
+msgstr "Erstes Video > erstes Bild > Beitragsbild > Standardbild"
+
+#: inc/constants.php:203
+#@ iwan
+msgid "No teaser image"
+msgstr "Kein Bild"
+
+#: inc/theme-options.php:37
+#@ iwan
+msgid "Options updated."
+msgstr "Optionen wurden gespeichert."
+
+#: inc/theme-options.php:372
+#@ iwan
+msgid "Options not set"
+msgstr "Optionen nicht definiert."
+
+#: functions.php:999
+#@ iwan
+msgid "Read more"
+msgstr "Weiterlesen"
+
+#: content.php:59
+#@ iwan
+msgid "written by "
+msgstr "von "
+

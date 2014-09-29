@@ -13,7 +13,7 @@ function theme_options_init() {
  * Load up the menu page
  */
 function theme_options_add_page() {
-	add_theme_page(__('Theme Iwan Options', 'iwan'), __('Theme Iwan Options', 'iwan'), 'edit_theme_options', 'theme_options', 'theme_options_do_page');
+	add_theme_page(__('Iwan Theme Options', 'iwan'), __('Iwan Theme Options', 'iwan'), 'edit_theme_options', 'theme_options', 'theme_options_do_page');
 }
 
 /**
@@ -29,12 +29,13 @@ function theme_options_do_page($tab = '') {
 
 	<div class="wrap">
 		<div class="iwan-optionen">  <!-- begin: .iwan-optionen -->
-	<?php screen_icon();
-	echo "<h2>" . wp_get_theme() . ': ' . __('Konfigurieren', 'iwan') . "</h2>"; ?>
+			<?php screen_icon();
+			echo "<h2>" . wp_get_theme() . ': ' . __('Options', 'iwan') . "</h2>";
+			?>
 
-	<?php if (false !== $_REQUEST['settings-updated']) : ?>
-				<div class="updated fade"><p><strong><?php _e('Optionen wurden gespeichert.', 'iwan'); ?></strong></p></div>
-			<?php
+			<?php if (false !== $_REQUEST['settings-updated']) : ?>
+				<div class="updated fade"><p><strong><?php _e('Options updated.', 'iwan'); ?></strong></p></div>
+				<?php
 			endif;
 
 			if (isset($_GET['tab'])) {
@@ -62,139 +63,139 @@ function theme_options_do_page($tab = '') {
 
 
 
-	        <form method="post" action="options.php">
+			<form method="post" action="options.php">
 	<?php settings_fields('iwan_options'); ?>
-	            <input type="hidden" id="iwan_theme_options[tab]" name="iwan_theme_options[tab]"  value="<?php echo $tab; ?>">
+				<input type="hidden" id="iwan_theme_options[tab]" name="iwan_theme_options[tab]"  value="<?php echo $tab; ?>">
 
 
 				<div id="einstellungen">
 					<table>
-	<?php
-	if (isset($setoptions['iwan_theme_options'][$tab]['fields'])) {
-		foreach ($setoptions['iwan_theme_options'][$tab]['fields'] as $i => $value) {
-			$name = $i;
-			if (isset($value['title']))
-				$title = $value['title'];
-			if (isset($value['type']))
-				$type = $value['type'];
-			if (isset($value['label']))
-				$label = $value['label'];
-			if (isset($value['parent']))
-				$parent = $value['parent'];
-			if (isset($value['liste']))
-				$liste = $value['liste'];
+						<?php
+						if (isset($setoptions['iwan_theme_options'][$tab]['fields'])) {
+							foreach ($setoptions['iwan_theme_options'][$tab]['fields'] as $i => $value) {
+								$name = $i;
+								if (isset($value['title']))
+									$title = $value['title'];
+								if (isset($value['type']))
+									$type = $value['type'];
+								if (isset($value['label']))
+									$label = $value['label'];
+								if (isset($value['parent']))
+									$parent = $value['parent'];
+								if (isset($value['liste']))
+									$liste = $value['liste'];
 
-			if ($type == 'section') {
-				if ((isset($setsection)) && ($setsection != "")) {
-					echo "\t\t\t</table>\n";
-					echo "\t\t</td>\n";
-					echo "\t</tr>\n";
-				}
-				echo "\t<tr valign=\"top\">\n\t\t<th scope=\"row\">";
-				echo $title;
-				echo "</th>\n\t\t<td>";
-				echo "\t\t\t<table class=\"suboptions\">\n";
-				$setsection = $name;
-			} else {
+								if ($type == 'section') {
+									if ((isset($setsection)) && ($setsection != "")) {
+										echo "\t\t\t</table>\n";
+										echo "\t\t</td>\n";
+										echo "\t</tr>\n";
+									}
+									echo "\t<tr valign=\"top\">\n\t\t<th scope=\"row\">";
+									echo $title;
+									echo "</th>\n\t\t<td>";
+									echo "\t\t\t<table class=\"suboptions\">\n";
+									$setsection = $name;
+								} else {
 
-				echo "\t<tr valign=\"top\">\n\t\t<th scope=\"row\">";
-				echo $title;
-				echo "</th>\n\t\t<td>";
+									echo "\t<tr valign=\"top\">\n\t\t<th scope=\"row\">";
+									echo $title;
+									echo "</th>\n\t\t<td>";
 
-				if ((!isset($options[$name])) && (isset($value['default'])) && (!empty($value['default']))) {
-					$options[$name] = $value['default'];
-				}
-				if ($type == 'bool') {
-					echo "\t\t\t";
-					echo "<input id=\"iwan_theme_options[$name]\" name=\"iwan_theme_options[$name]\"
+									if ((!isset($options[$name])) && (isset($value['default'])) && (!empty($value['default']))) {
+										$options[$name] = $value['default'];
+									}
+									if ($type == 'bool') {
+										echo "\t\t\t";
+										echo "<input id=\"iwan_theme_options[$name]\" name=\"iwan_theme_options[$name]\"
                                             type=\"checkbox\" value=\"1\" " . checked($options[$name], 1, false) . ">\n";
-					echo "\t\t\t";
-					echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
-				} elseif (($type == 'text') || ($type == 'email')) {
-					echo "\t\t\t";
-					echo "<input class=\"regular-text\" id=\"iwan_theme_options[$name]\"
+										echo "\t\t\t";
+										echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
+									} elseif (($type == 'text') || ($type == 'email')) {
+										echo "\t\t\t";
+										echo "<input class=\"regular-text\" id=\"iwan_theme_options[$name]\"
                                             type=\"text\" name=\"iwan_theme_options[$name]\"
 					    value=\"";
-					if (isset($options[$name]))
-						echo esc_attr($options[$name]);
+										if (isset($options[$name]))
+											echo esc_attr($options[$name]);
 
-					echo "\"><br>\n";
-					echo "\t\t\t";
-					echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
-				} elseif (($type == 'html') || ($type == 'url')) {
-					echo "\t\t\t";
-					echo "<input class=\"large-text\" id=\"iwan_theme_options[$name]\"
+										echo "\"><br>\n";
+										echo "\t\t\t";
+										echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
+									} elseif (($type == 'html') || ($type == 'url')) {
+										echo "\t\t\t";
+										echo "<input class=\"large-text\" id=\"iwan_theme_options[$name]\"
                                             type=\"text\" name=\"iwan_theme_options[$name]\"
 					    size=\"120\" value=\"";
-					if (isset($options[$name]))
-						echo esc_attr($options[$name]);
+										if (isset($options[$name]))
+											echo esc_attr($options[$name]);
 
-					echo "\"><br>\n";
-					echo "\t\t\t";
-					echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
-				} elseif ($type == 'imgurl') {
-					echo "\t\t\t";
-					echo "<input class=\"large-text\" id=\"iwan_theme_options[$name]\"
+										echo "\"><br>\n";
+										echo "\t\t\t";
+										echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
+									} elseif ($type == 'imgurl') {
+										echo "\t\t\t";
+										echo "<input class=\"large-text\" id=\"iwan_theme_options[$name]\"
                                             type=\"text\" name=\"iwan_theme_options[$name]\"
 					    size=\"120\" value=\"";
-					if (isset($options[$name]))
-						echo esc_attr($options[$name]);
-					echo "\"><br>\n";
-					if (isset($options[$name])) {
-						echo "<img class=\"imgurl\" src=\"" . esc_attr($options[$name]) . "\" alt=\"\">\n";
-					}
-					echo "\t\t\t";
-					echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
-				} elseif ($type == 'textarea') {
-					echo "\t\t\t";
-					echo "<textarea class=\"large-text\" id=\"iwan_theme_options[$name]\"
+										if (isset($options[$name]))
+											echo esc_attr($options[$name]);
+										echo "\"><br>\n";
+										if (isset($options[$name])) {
+											echo "<img class=\"imgurl\" src=\"" . esc_attr($options[$name]) . "\" alt=\"\">\n";
+										}
+										echo "\t\t\t";
+										echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
+									} elseif ($type == 'textarea') {
+										echo "\t\t\t";
+										echo "<textarea class=\"large-text\" id=\"iwan_theme_options[$name]\"
                                             cols=\"30\" rows=\"10\"  name=\"iwan_theme_options[$name]\">";
-					if (isset($options[$name]))
-						echo esc_attr($options[$name]);
-					echo "</textarea><br>\n";
-					echo "\t\t\t";
-					echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
-				} elseif ($type == 'number') {
-					echo "\t\t\t";
-					echo "<input class=\"number\" size=\"5\" id=\"iwan_theme_options[$name]\"
+										if (isset($options[$name]))
+											echo esc_attr($options[$name]);
+										echo "</textarea><br>\n";
+										echo "\t\t\t";
+										echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
+									} elseif ($type == 'number') {
+										echo "\t\t\t";
+										echo "<input class=\"number\" size=\"5\" id=\"iwan_theme_options[$name]\"
                                             type=\"text\" name=\"iwan_theme_options[$name]\"
                                             value=\"" . esc_attr($options[$name]) . "\"><br>\n";
-					echo "\t\t\t";
-					echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
-				} elseif ($type == 'bildlist') {
-					echo "\t\t\t";
-					foreach ($liste as $i => $value) {
-						echo "\t\t\t\t";
-						$src = $value['src'];
-						$label = $value['label'];
-						echo "<label class=\"tile";
-						if ($src == $options[$name]) {
-							echo ' checked';
-						}
-						echo "\">\n";
-						echo '<input type="radio" value="' . $src . '"
+										echo "\t\t\t";
+										echo "<label for=\"iwan_theme_options[$name]\">$label</label>\n";
+									} elseif ($type == 'bildlist') {
+										echo "\t\t\t";
+										foreach ($liste as $i => $value) {
+											echo "\t\t\t\t";
+											$src = $value['src'];
+											$label = $value['label'];
+											echo "<label class=\"tile";
+											if ($src == $options[$name]) {
+												echo ' checked';
+											}
+											echo "\">\n";
+											echo '<input type="radio" value="' . $src . '"
 					    name="iwan_theme_options[' . $name . ']"';
-						if ($src == $options[$name]) {
-							echo ' checked="checked"';
-						}
-						echo '> ';
-						echo $label . '<br><img src="' . $src . '" alt="" style="width: 320px; height: auto;">';
-						echo "</label>\n";
-					}
-					echo "<br style=\"clear: left;\">\n";
-				} elseif ($type == 'bildchecklist') {
-					echo "\t\t\t";
-					foreach ($liste as $option) {
-						$checked = '';
-						if ((isset($options[$name])) && (is_array($options[$name]))) {
-							foreach ($options[$name] as $current) {
-								if ($current == $option['src']) {
-									$checked = "checked=\"checked\"";
-									break;
-								}
-							}
-						}
-						?>
+											if ($src == $options[$name]) {
+												echo ' checked="checked"';
+											}
+											echo '> ';
+											echo $label . '<br><img src="' . $src . '" alt="" style="width: 320px; height: auto;">';
+											echo "</label>\n";
+										}
+										echo "<br style=\"clear: left;\">\n";
+									} elseif ($type == 'bildchecklist') {
+										echo "\t\t\t";
+										foreach ($liste as $option) {
+											$checked = '';
+											if ((isset($options[$name])) && (is_array($options[$name]))) {
+												foreach ($options[$name] as $current) {
+													if ($current == $option['src']) {
+														$checked = "checked=\"checked\"";
+														break;
+													}
+												}
+											}
+											?>
 											<label class="plakattile">
 												<div style="height: 40px; width: 100%; margin:0 auto; background-color: #F28900; color: white; display: block;">
 													<input type="checkbox" name="iwan_theme_options[<?php echo $name ?>][]"
@@ -205,7 +206,7 @@ function theme_options_do_page($tab = '') {
 													<img src="<?php echo $option['src'] ?>" style="width: 280px; height: auto;  ">
 												</div>
 											</label>
-										<?php
+											<?php
 										}
 										echo "<br style=\"clear: left;\">\n";
 									} elseif ($type == 'bilddirchecklist') {
@@ -237,7 +238,7 @@ function theme_options_do_page($tab = '') {
 															<div style="height: 40px; width: 100%; margin:0 auto; background-color: #F28900; color: white; display: block;">
 																<input type="checkbox" name="iwan_theme_options[<?php echo $name ?>][]"
 																	   value="<?php echo esc_attr($bildurl); ?>" <?php echo $checked; ?> />
-														<?php echo $sub ?>
+									<?php echo $sub ?>
 															</div>
 															<div style="height: 211px; overflow: hidden; margin: 5px auto; width: 150px; padding: 0;">
 																<img src="<?php echo $bildurl ?>" style="width: 150px; height: auto;  ">
@@ -274,7 +275,7 @@ function theme_options_do_page($tab = '') {
 														<div style="height: 40px; width: 100%; margin:0 auto; background-color: #F28900; color: white; display: block;">
 															<input type="checkbox" name="iwan_theme_options[<?php echo $name ?>][]"
 																   value="<?php echo esc_attr($bildurl); ?>" <?php echo $checked; ?> />
-													<?php echo $sub ?>
+								<?php echo $sub ?>
 														</div>
 														<div style="height: 211px; overflow: hidden; margin: 5px auto; width: 150px; padding: 0;">
 															<img src="<?php echo $bildurl ?>" style="width: 150px; height: auto;  ">
@@ -368,7 +369,7 @@ function theme_options_do_page($tab = '') {
 								$setsection = "";
 							}
 						} else {
-							_e('Optionen nicht definiert', 'iwan');
+							_e('Options not set', 'iwan');
 						}
 						?>
 
@@ -377,7 +378,7 @@ function theme_options_do_page($tab = '') {
 				</div>
 
 				<p class="submit">
-	                <input type="submit" class="button-primary" value="<?php echo __('Save Options', 'iwan'); ?>" />
+					<input type="submit" class="button-primary" value="<?php echo __('Save Options', 'iwan'); ?>" />
 				</p>
 			</form>
 		</div>
@@ -427,7 +428,7 @@ function theme_options_validate($input) {
 					} elseif ($type == 'textarea') {
 						$output[$name] = $input[$name];
 					} elseif ($type == 'html') {
-;
+						;
 						$output[$name] = $input[$name];
 					} elseif (($type == 'url') || ($type == 'imgurl')) {
 						$output[$name] = esc_url($input[$name]);
@@ -463,15 +464,6 @@ function theme_options_validate($input) {
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
 	return $output;
 }
 

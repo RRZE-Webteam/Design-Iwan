@@ -21,38 +21,25 @@ $defaultoptions = array(
 	'aktiv-twitter-share' => 1,
 	'aktiv-autoren' => 1,
 	'aktiv-commentreplylink' => 0,
-	'default_comment_notes_before' => '<p class="comment-notes">' . __('Deine E-Mail-Adresse wird nicht ver&ouml;ffentlicht. Erforderliche Felder sind markiert <span class="required">*</span>', 'iwan') . '</p>',
+	'default_comment_notes_before' => '<p class="comment-notes">' . __('Your email address will not be published. Required fields are marked red.', 'iwan') . '<span class="required">*</span>' . '</p>',
 	'disclaimer_post' => '',
 	'login_errors' => 0,
 	'src-breadcrumb-image' => get_template_directory_uri() . '/images/breadcrumbarrow.gif',
 	'src-teaser-thumbnail_default' => '',
 	'category-teaser' => 1,
-	'num-article-startpage-fullwidth' => 1,
-	'num-article-startpage-halfwidth' => 4,
-	'teaser-thumbnail_width' => 120,
-	'teaser-thumbnail_height' => 120,
+	'teaser-thumbnail_width' => 300,
+	'teaser-thumbnail_height' => 300,
 	'teaser-thumbnail_crop' => 0,
 	'src-teaser-thumbnail_default' => get_template_directory_uri() . '/images/default-teaserthumb.gif',
 	'teaser-thumbnail_fallback' => 1,
-	'teaser-title-maxlength' => 50,
-	'teaser-subtitle' => __('Topthema', 'iwan'),
-	'teaser-title-words' => 7,
 	'teaser_maxlength' => 500,
-	'teaser-titleup' => 1, /* Titles up */
-	'teaser-datebox' => 0,
+	'teaser-image' => 0,
 	/*
 	 * 1 = Thumbnail (or: first picture, first video, fallback picture),
 	 * 2 = First picture (or: thumbnail, first video, fallback picture),
 	 * 3 = First video (or: thumbnail, first picture, fallback picture),
 	 * 4 = First video (or: first picture, thumbnail, fallback picture),
 	 * 5 = Nothing */
-	'teaser-floating' => 0,
-	'teaser-dateline' => 0, /* 1 = show Date on line up of the text if no datebox */
-	'teaser-maxlength-halfwidth' => 200,
-	'teaser-titleup-halfwidth' => 1, /* Titles up */
-	'teaser-datebox-halfwidth' => 1,
-	'teaser-floating-halfwidth' => 1,
-	'teaser-dateline-halfwidth' => 0, /* 1 = show Date on line up of the text if no datebox */
 	'text-startseite' => __('Home', 'iwan'),
 	'default_text_title_home_backlink' => __('Back to Home Page', 'iwan'),
 	'default_footerlink_key' => 'Fakultaeten',
@@ -94,6 +81,11 @@ $default_socialmedia_post_liste = array(
  * Liste Social Media
  */
 $default_socialmedia_liste = array(
+	'feed' => array(
+		'name' => 'RSS Feed',
+		'content' => get_bloginfo('rss2_url'),
+		'active' => 1,
+	),
 	'delicious' => array(
 		'name' => 'Delicious',
 		'content' => '',
@@ -105,23 +97,13 @@ $default_socialmedia_liste = array(
 		'active' => 0,
 	),
 	'facebook_follow' => array(
-		'name' => __('Follow us on Facebook','iwan'),
+		'name' => 'Facebook',
 		'content' => 'https://de-de.facebook.com/Uni.Erlangen.Nuernberg',
 		'active' => 1,
 	),
-	'facebook_share' => array(
-		'name' => __('Share on Facebook','iwan'),
-		'content' => 'https://www.facebook.com/sharer/sharer.php?u=' . get_bloginfo('url'),
-		'active' => 1,
-	),
 	'twitter_follow' => array(
-		'name' => __('Follow us on Twitter','iwan'),
+		'name' => 'Twitter',
 		'content' => 'https://twitter.com/UniFAU',
-		'active' => 1,
-	),
-	'twitter_share' => array(
-		'name' => __('Share on Twitter','iwan'),
-		'content' => 'https://twitter.com/intent/tweet?&via=uniFAU&url=' . get_bloginfo('url'),
 		'active' => 1,
 	),
 	'gplus' => array(
@@ -179,44 +161,7 @@ $default_socialmedia_liste = array(
 		'content' => '',
 		'active' => 0,
 	),
-	'feed' => array(
-		'name' => 'RSS Feed',
-		'content' => get_bloginfo('rss2_url'),
-		'active' => 1,
-	),
 );
-
-/*
- * Linkliste fuer Footer und Widgets
- */
-$default_footerlink_liste = array(
-	__('Fakultaeten', 'iwan') => array(
-		'title' => __('Friedrich-Alexander-Universit&auml;t Erlangen-N&uuml;rnberg', 'iwan'),
-		'url' => 'http://www.fau.de',
-		'sublist' => array(
-			__('Philosophische Fakult&auml;t und Fachbereich Theologie', 'iwan') => 'http://www.phil.faude/',
-			__('Rechts- und Wirtschaftswissenschaftliche Fakult&auml;t', 'iwan') => 'http://www.rw.fau.de/',
-			__('Medizinische Fakult&auml;t', 'iwan') => 'http://www.med.fau.de/',
-			__('Naturwissenschaftliche Fakult&auml;t', 'iwan') => 'http://www.natfak.fau.de/',
-			__('Technische Fakult&auml;t', 'iwan') => 'http://www.techfak.fau.de/',
-		)
-	),
-	__('RRZE', 'iwan') => array(
-		'title' => __('Regioanles Rechenzentrum Erlangen', 'iwan'),
-		'url' => 'http://www.rrze.fau.de',
-		'sublist' => array(
-			__('Service-Theke', 'iwan') => 'http://www.rrze.fau.de/hilfe/service-theke',
-			__('Informationszentrum Innenstadt', 'iwan') => 'http://www.izi.rrze.fau.de/',
-			__('Informationszentrum N&uuml;rnberg', 'iwan') => 'http://www.zzn.rrze.fau.de/',
-			__('Informationszentrum Halbmondstrasse', 'iwan') => 'http://www.izh.rrze.fau.de/',
-			__('Blogdienst', 'iwan') => 'http://blogs.fau.de/',
-			__('Videoportal', 'iwan') => 'http://video.fau.de/',
-			__('IDM', 'iwan') => 'https://www.idm.fau.de/',
-			__('Aktuelle Meldungen', 'iwan') => 'http://blogs.fau.de/rrze/',
-		)
-	),
-);
-
 
 
 /*
@@ -226,13 +171,37 @@ $default_footerlink_liste = array(
 $setoptions = array(
 	'iwan_theme_options' => array(
 		'design' => array(
-			'tabtitle' => __('Design', 'iwan'),
+			'tabtitle' => __('Content Options', 'iwan'),
 			'fields' => array(
 				'text-startseite' => array(
 					'type' => 'text',
 					'title' => __('Home Page Name', 'iwan'),
 					'label' => __('Home page name for breadcrumb navigation', 'iwan'),
 					'default' => $defaultoptions['text-startseite'],
+				),
+				'teaser' => array(
+					'type' => 'section',
+					'title' => __('Teaser', 'iwan'),
+				),
+				'teaser_maxlength' => array(
+					'type' => 'number',
+					'title' => __('Teaser length', 'iwan'),
+					'label' => __('Maximum length for teasers on home page.', 'iwan'),
+					'default' => $defaultoptions['teaser_maxlength'],
+					'parent' => 'teaser'
+				),
+				'teaser-image' => array(
+					'type' => 'select',
+					'title' => __('Teaser image', 'iwan'),
+					'label' => __('Show teaser image if availible and depending on post content.', 'iwan'),
+					'default' => $defaultoptions['teaser-image'],
+					'liste' => array(
+						1 => __("Featured image > first image > first video > default image", "iwan"),
+						2 => __("First image > featured image > first video > default image", "iwan"),
+						3 => __("First video > featured image > first image > default image", "iwan"),
+						4 => __("First video > first image > featured image > default image", "iwan"),
+						5 => __("No teaser image", "iwan")),
+					'parent' => 'teaser'
 				),
 				'aktiv-autoren' => array(
 					'type' => 'bool',
@@ -320,124 +289,6 @@ $setoptions = array(
 					'parent' => 'buttons'
 				),
 			)
-		),
-		'startseite' => array(
-			'tabtitle' => __('Home Page', 'iwan'),
-			'fields' => array(
-				'teaser-title-maxlength' => array(
-					'type' => 'number',
-					'title' => __('Text length', 'iwan'),
-					'label' => __('Maximale Textl&auml;nge des Titels im Teaser.', 'iwan'),
-					'default' => $defaultoptions['teaser-title-maxlength'],
-				),
-				'teaser-title-words' => array(
-					'type' => 'number',
-					'title' => __('Wortzahl', 'iwan'),
-					'label' => __('Zahl der Worte im Teaser; Die maximale Textl&auml;nge begrenzt diesen Wert jedoch.', 'iwan'),
-					'default' => $defaultoptions['teaser-title-words'],
-				),
-				'auszuege' => array(
-					'type' => 'section',
-					'title' => __('Gestaltung Textausz&uuml;ge', 'iwan'),
-				),
-				'num-article-startpage-fullwidth' => array(
-					'type' => 'number',
-					'title' => __('Beitr&auml;ge &uuml;ber ganze Breite', 'iwan'),
-					'label' => __('Zahl der Beitr&auml;ge, die &uuml;ber die gesamte Inhaltsbreite gehen.', 'iwan'),
-					'default' => $defaultoptions['num-article-startpage-fullwidth'],
-					'parent' => 'auszuege'
-				),
-				'num-article-startpage-halfwidth' => array(
-					'type' => 'select',
-					'title' => __('Beitr&auml;ge &uuml;ber halbe Breite', 'iwan'),
-					'label' => __('Zahl der Beitr&auml;ge, die in Spalten mit je zwei Beitr&auml;gen nebeneinander, angezeigt werden.', 'iwan'),
-					'liste' => array(0 => 0, 2 => 2, 4 => 4, 6 => 6, 8 => 8),
-					'default' => $defaultoptions['num-article-startpage-halfwidth'],
-					'parent' => 'auszuege'
-				),
-				'teaser_maxlength' => array(
-					'type' => 'number',
-					'title' => __('L&auml;nge des Teasertextes (Artikelauszug)', 'iwan'),
-					'label' => __('Maximale Textl&auml;nge f&uuml;r Artikelausz&uuml;ge auf der Startseite.', 'iwan'),
-					'default' => $defaultoptions['teaser_maxlength'],
-					'parent' => 'auszuege'
-				),
-				'teaser-titleup' => array(
-					'type' => 'bool',
-					'title' => __('Titel oben', 'iwan'),
-					'label' => __('Titel &uuml;ber Logo/Datumsbox und Text', 'iwan'),
-					'default' => $defaultoptions['teaser-titleup'],
-					'parent' => 'auszuege'
-				),
-				'teaser-datebox' => array(
-					'type' => 'select',
-					'title' => __('Symbolbild/Datumsbox', 'iwan'),
-					'label' => __('Links des Textauszuges das Datum, das Artikelbild, ein Bild des Artikels oder ein verlinktes Video anzeigen; Abhängig vom Inhalt des Artikels.', 'iwan'),
-					'default' => $defaultoptions['teaser-datebox'],
-					'liste' => array(
-						1 => __("Reihenfolge: Artikelbild, erstes Bild, erstes Video oder Ersatzbild zeigen", "iwan"),
-						2 => __("Reihenfolge: Erstes Bild, Artikelbild, erstes Video oder Ersatzbild zeigen", "iwan"),
-						3 => __("Reihenfolge: Erstes Video, Artikelbild, erstes Bild oder Ersatzbild zeigen", "iwan"),
-						4 => __("Reihenfolge: Erstes Video, erstes Bild, Artikelbild oder Ersatzbild zeigen", "iwan"),
-						5 => __("Nichts anzeigen", "iwan")),
-					'parent' => 'auszuege'
-				),
-				'teaser-floating' => array(
-					'type' => 'bool',
-					'title' => __('Flie&szlig;ender Text', 'iwan'),
-					'label' => __('Text umflie&szlig;t das Bild', 'iwan'),
-					'default' => $defaultoptions['teaser-floating'],
-					'parent' => 'auszuege'
-				),
-				'teaser-dateline' => array(
-					'type' => 'bool',
-					'title' => __('Datumszeile', 'iwan'),
-					'label' => __('Datumszeile vor dem Text, falls keine Datumsbox angezeigt wird', 'iwan'),
-					'default' => $defaultoptions['teaser-dateline'],
-					'parent' => 'auszuege'
-				),
-				'teaser-maxlength-halfwidth' => array(
-					'type' => 'number',
-					'title' => __('L&auml;nge des Teasertextes', 'iwan'),
-					'label' => __('Maximale Textl&auml;nge f&uuml;r Artikelausz&uuml;ge (Bei Beitr&auml;gen &uuml;ber halbe Breite).', 'iwan'),
-					'default' => $defaultoptions['teaser-maxlength-halfwidth'],
-					'parent' => 'auszuege'
-				),
-				'teaser-titleup-halfwidth' => array(
-					'type' => 'bool',
-					'title' => __('Titel oben', 'iwan'),
-					'label' => __('Titel &uuml;ber Logo/Datumsbox und Text (Bei Beitr&auml;gen &uuml;ber halbe Breite).', 'iwan'),
-					'default' => $defaultoptions['teaser-titleup-halfwidth'],
-					'parent' => 'auszuege'
-				),
-				'teaser-datebox-halfwidth' => array(
-					'type' => 'select',
-					'title' => __('Symbolbild/Datumsbox', 'iwan'),
-					'label' => __('Links des Textauszuges das Datum, das Artikelbild, ein Bild des Artikels oder ein verlinktes Video anzeigen; Abhängig vom Inhalt des Artikels. (Bei Beitr&auml;gen &uuml;ber halbe Breite)', 'iwan'),
-					'default' => $defaultoptions['teaser-datebox-halfwidth'],
-					'liste' => array(
-						1 => __("Reihenfolge: Artikelbild, erstes Bild, erstes Video oder Ersatzbild zeigen", "iwan"),
-						2 => __("Reihenfolge: Erstes Bild, Artikelbild, erstes Video oder Ersatzbild zeigen", "iwan"),
-						3 => __("Reihenfolge: Erstes Video, Artikelbild, erstes Bild oder Ersatzbild zeigen", "iwan"),
-						4 => __("Reihenfolge: Erstes Video, erstes Bild, Artikelbild oder Ersatzbild zeigen", "iwan"),
-						5 => __("Nichts anzeigen", "iwan")),
-					'parent' => 'auszuege'
-				),
-				'teaser-floating-halfwidth' => array(
-					'type' => 'bool',
-					'title' => __('Flie&szlig;ender Text', 'iwan'),
-					'label' => __('Text umflie&szlig;t das Bild (Bei Beitr&auml;gen &uuml;ber halbe Breite)', 'iwan'),
-					'default' => $defaultoptions['teaser-floating-halfwidth'],
-					'parent' => 'auszuege'
-				),
-				'teaser-dateline-halfwidth' => array(
-					'type' => 'bool',
-					'title' => __('Datumszeile', 'iwan'),
-					'label' => __('Datumszeile vor dem Text, falls keine Datumsbox angezeigt wird (Bei Beitr&auml;gen &uuml;ber halbe Breite).', 'iwan'),
-					'default' => $defaultoptions['teaser-dateline-halfwidth'],
-					'parent' => 'auszuege'
-				),
-			),
 		),
 		'socialmedia' => array(
 			'tabtitle' => __('Social Media', 'iwan'),
