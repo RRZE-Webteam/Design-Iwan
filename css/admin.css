@@ -288,7 +288,3 @@ img.imgurl {
   /*must have*/
   height: 200px;
   /*must have*/ }
-
-/* Backend-Icon für Custom Post Type "Vortrag" */
-.icon-vortrag:before, #adminmenu .menu-icon-vortrag div.wp-menu-image:before {
-  content: "\f473"; }

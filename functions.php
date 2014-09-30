@@ -998,7 +998,7 @@ function iwan_excerpt_length($length) {
 add_filter('excerpt_length', 'iwan_excerpt_length');
 
 function iwan_continue_reading_link() {
-	return ' <p><a class="more-link" title="' . strip_tags(get_the_title()) . '" href="' . get_permalink() . '">' . __('Read more', 'iwan') . '<span class="meta-nav">&rarr;</span>' . '</a></p>';
+	return ' <p><a class="more-link" title="' . strip_tags(get_the_title()) . '" href="' . get_permalink() . '">' . __('Read more', 'iwan') . '<span class="meta-nav"> &rarr;</span>' . '</a></p>';
 }
 
 function iwan_auto_excerpt_more($more) {

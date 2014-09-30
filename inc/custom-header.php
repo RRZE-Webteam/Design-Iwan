@@ -28,7 +28,7 @@ function iwan_custom_header_setup() {
 
 		// Set height and width, with a maximum value for the width.
 		'height'                 => 100,
-		'width'                  => 1600,
+		'width'                  => 600,
 
 		// Callbacks for styling the header and the admin preview.
 		'wp-head-callback'       => 'iwan_header_style',

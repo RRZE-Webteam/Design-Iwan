@@ -29,7 +29,7 @@ function theme_options_do_page($tab = '') {
 
 	<div class="wrap">
 		<div class="iwan-optionen">  <!-- begin: .iwan-optionen -->
-			<?php screen_icon();
+			<?php 
 			echo "<h2>" . wp_get_theme() . ': ' . __('Options', 'iwan') . "</h2>";
 			?>
 
