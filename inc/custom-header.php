@@ -24,7 +24,7 @@ function iwan_custom_header_setup() {
 	$args = array(
 		// Text color and image (empty to use none).
 		'default-text-color'     => '003366',
-		'default-image'          => '%s/images/headers/fau-aktuell.png',
+		'default-image'          => '%s/images/headers/fau-blogs.png',
 
 		// Set height and width, with a maximum value for the width.
 		'height'                 => 100,
@@ -43,15 +43,20 @@ function iwan_custom_header_setup() {
 	 * %s is a placeholder for the theme template directory URI.
 	 */
 	register_default_headers( array(
-		'fau-aktuell' => array(
-			'url'           => '%s/images/headers/fau-aktuell.png',
-			'thumbnail_url' => '%s/images/headers/fau-aktuell-thumbnail.png',
-			'description'   => _x( 'FAU Aktuell', 'header image description', 'iwan' )
-		),
 		'fau-blogs' => array(
 			'url'           => '%s/images/headers/fau-blogs.png',
 			'thumbnail_url' => '%s/images/headers/fau-blogs-thumbnail.png',
 			'description'   => _x( 'FAU Blogsystem', 'header image description', 'iwan' )
+		),
+		'fau-logo' => array(
+			'url'           => '%s/images/headers/logo-fau.png',
+			'thumbnail_url' => '%s/images/headers/logo-fau-thumbnail.png',
+			'description'   => _x( 'Logo FAU', 'header image description', 'fauish' )
+		),
+		'fau-aktuell' => array(
+			'url'           => '%s/images/headers/fau-aktuell.png',
+			'thumbnail_url' => '%s/images/headers/fau-aktuell-thumbnail.png',
+			'description'   => _x( 'FAU Aktuell', 'header image description', 'iwan' )
 		),
 	) );
 }

@@ -1161,8 +1161,7 @@ aside .button.breit:last-of-type {
 
 .site-header .home-link img {
 	float: left;
-	margin-right: 20px;
-	margin-top: 20px;
+	margin: 35px 30px 20px 0;
 }
 
 .site-header .site-title:hover {
@@ -1287,6 +1286,7 @@ ul.nav-menu .focus > ul,
 	margin: 0 auto;
 	border-bottom: 1px solid #e3e8f0;
 	width: 100%;
+	clear: left;
 }
 
 .site-header .search-form {
@@ -3158,6 +3158,9 @@ footer.entry-meta .author {
 @media (max-width: 767px) {
 	.site-header .home-link {
 		min-height: 0;
+	}
+	.site-header .home-link img {
+		margin: 13px 20px 10px 0;
 	}
 	.site-title {
 		font-size: 36px;
