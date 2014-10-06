@@ -1128,7 +1128,10 @@ aside .button.breit:last-of-type {
     padding: 0 346px 0 0;
 	margin: 0 auto;
 }
-
+.attachment .content-area {
+	max-width: 1040px;
+	margin: 0 auto;
+}
 
 /**
  * 4.0 Header
@@ -2093,8 +2096,6 @@ footer.entry-meta .author {
 }
 
 .attachment .entry-title {
-	display: inline-block;
-	float: left;
 	font: 300 italic 30px "Helvetica Neue", Helvetica, sans-serif;
 	margin: 0;
 }
@@ -2106,12 +2107,9 @@ footer.entry-meta .author {
 }
 
 .attachment .entry-meta {
-	clear: none;
-	color: inherit;
-	float: right;
-	max-width: 604px;
-	padding: 9px 0 0;
+	padding: 6px 20px;
 	text-align: right;
+	margin-top: 15px;
 }
 
 .hentry.attachment:not(.image-attachment) .entry-meta {
