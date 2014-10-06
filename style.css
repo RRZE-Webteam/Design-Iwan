@@ -3,7 +3,7 @@ Theme Name: Iwan
 Theme URI: https://github.com/RRZE-Webteam/Design-Iwan
 Author: Barbara Bothe
 Author URI: http://www.rrze.uni-erlangen.de/
-Description: Blog Theme für die FAU. Ihr habt es so gewollt.
+Description: Blog Theme für die FAU.
 Version: 1.0
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -388,7 +388,7 @@ input[type="radio"] {
 
 input[type="search"] {
 	-webkit-appearance: textfield;
-	padding-right: 2px; /* Don't cut off the webkit search cancel button */
+	padding: 0 10px; /* Don't cut off the webkit search cancel button */
 	width: 270px;
 }
 
@@ -1287,37 +1287,6 @@ ul.nav-menu .focus > ul,
 	border-bottom: 1px solid #e3e8f0;
 	width: 100%;
 	clear: left;
-}
-
-.site-header .search-form {
-	position: absolute;
-	right: 20px;
-	top: 1px;
-}
-
-.site-header .search-field {
-	background-color: transparent;
-	background-image: url(images/search-icon-white.png);
-	background-position: 5px center;
-	background-repeat: no-repeat;
-	background-size: 24px 24px;
-	border: none;
-	cursor: pointer;
-	height: 37px;
-	margin: 3px 0;
-	padding: 0 0 0 34px;
-	position: relative;
-	-webkit-transition: width 400ms ease, background 400ms ease;
-	transition:         width 400ms ease, background 400ms ease;
-	width: 1px;
-}
-
-.site-header .search-field:focus {
-	background-color: #819BB4;
-	border: 2px solid #819BB4;
-	cursor: text;
-	outline: 0;
-	width: 230px;
 }
 
 .breadcrumbs {
@@ -2824,14 +2793,37 @@ footer.entry-meta .author {
 .widget_search {
 	background-color: transparent;
 }
+.site-header .search-form {
+	position: absolute;
+	right: 20px;
+	top: 1px;
+	font-size: 14px;
+}
+
 .search-form .search-submit {
-	display: none;
+	background: #819bb4;
+    border: 1px solid #819bb4;
+    border-radius: 20px;
+    color: #ffffff;
+	padding: 5px 10px;
+	width: auto;
 }
 .search-form .search-field {
-	border: 2px solid #819BB4;
+	border: 1px solid #819BB4;
 	border-radius: 20px 20px 20px 20px;
-	background-color: #819BB4;
-	color: #ffffff;
+	color: #22517c;
+	width: 190px;
+	height: 29px;
+}
+.search-form input[type="submit"]:focus {
+	background: #22517c;
+}
+.search-form input[type="submit"]:active {
+	background: #22517c;
+	border-top: 2px solid #003366;
+	border-left: 2px solid #003366;
+	border-bottom: none;
+	padding: 5px 10px;
 }
 
 /* RSS Widget */

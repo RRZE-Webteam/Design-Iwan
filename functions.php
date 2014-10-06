@@ -775,9 +775,9 @@ if (!function_exists('get_iwan_opengraphinfo')) :
 		global $post;
 
 		$ogimage = '';
-		if (is_single() && !empty(get_the_post_thumbnail($post->ID))) :
+		if (is_single() && (has_post_thumbnail($post->ID))) :
 			$ogimage = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
-		elseif (is_single() && empty(get_the_post_thumbnail($post->ID))) :
+		elseif (is_single() && !(has_post_thumbnail($post->ID))) :
 			$ogimage = get_iwan_first_image_url();
 		elseif (!empty(get_header_image())):
 			$ogimage = get_header_image();
@@ -815,10 +815,11 @@ if (!function_exists('get_iwan_first_image_url')) :
 	 * Get First Picture URL from content
 	 */
 	function get_iwan_first_image_url() {
-		global $post, $posts;
+		global $post;
 		$first_img = '';
 		ob_start();
 		ob_end_clean();
+		$matches = array();
 		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
 		if ($output != 0) {
 			$first_img = $matches[1][0];
@@ -935,9 +936,9 @@ if (!function_exists('get_iwan_firstpicture')) :
 		ob_start();
 		ob_end_clean();
 		$matches = array();
-		preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-		if ((is_array($matches)) && (isset($matches[1]))) {
-			$first_img = $matches[1];
+		$output = preg_match_all('/<img .+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		if ((is_array($matches)) && (isset($matches[1][0]))) {
+			$first_img = $matches[1][0];
 			if (!empty($first_img)) {
 				$site_link = home_url();
 				$first_img = preg_replace("%$site_link%i", '', $first_img);
@@ -946,7 +947,6 @@ if (!function_exists('get_iwan_firstpicture')) :
 			}
 		}
 	}
-
 endif;
 
 
