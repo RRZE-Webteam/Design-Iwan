@@ -29,7 +29,6 @@
 	<![endif]-->
 	<?php wp_head(); ?>
 	<?php get_iwan_opengraphinfo() ?>
-	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico">
 </head>
 
 <body <?php body_class(); ?>>
