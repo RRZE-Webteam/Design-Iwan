@@ -11,10 +11,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<div class="breadcrumbs">
-			<?php if (function_exists('iwan_breadcrumbs')) iwan_breadcrumbs(); ?>
-		</div>
+	<div id="primary" class="content-area"><div class="breadcrumbs"> 				<?php if (function_exists('iwan_breadcrumbs')) iwan_breadcrumbs(); ?> 			</div>
 		<div id="content" class="site-content" role="main">
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'image-attachment' ); ?>>
 				<header class="entry-header">

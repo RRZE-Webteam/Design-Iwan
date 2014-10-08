@@ -779,7 +779,7 @@ if (!function_exists('get_iwan_opengraphinfo')) :
 			$ogimage = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 		elseif (is_single() && !(has_post_thumbnail($post->ID))) :
 			$ogimage = get_iwan_first_image_url();
-		elseif (!empty(get_header_image())):
+		elseif (get_header_image()):
 			$ogimage = get_header_image();
 		endif;
 
@@ -823,7 +823,7 @@ if (!function_exists('get_iwan_first_image_url')) :
 		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
 		if ($output != 0) {
 			$first_img = $matches[1][0];
-		} elseif (($output == 0) && !empty(get_header_image())) {
+		} elseif (($output == 0) && (get_header_image())) {
 			$first_img = get_header_image();
 		}
 		return $first_img;
