@@ -51,7 +51,7 @@ function iwan_custom_header_setup() {
 		'fau-logo' => array(
 			'url'           => '%s/images/headers/logo-fau.png',
 			'thumbnail_url' => '%s/images/headers/logo-fau-thumbnail.png',
-			'description'   => _x( 'Logo FAU', 'header image description', 'fauish' )
+			'description'   => _x( 'Logo FAU', 'header image description', 'iwan' )
 		),
 		'fau-aktuell' => array(
 			'url'           => '%s/images/headers/fau-aktuell.png',
