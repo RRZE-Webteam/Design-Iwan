@@ -1189,12 +1189,20 @@ aside .button.breit:last-of-type {
  * ----------------------------------------------------------------------------
  */
 
+.techmenu,
 .main-navigation {
 	clear: both;
 	margin: 0 auto;
 	max-width: 1080px;
 	min-height: 45px;
 	position: relative;
+}
+.techmenu {
+	background-color: #cdd5e3;
+}
+ul.tech-menu {
+	padding: 0;
+	margin: 0;
 }
 
 ul.nav-menu,
@@ -1203,6 +1211,7 @@ div.nav-menu > ul {
 	padding: 0 40px 0 0;
 }
 
+.techmenu li,
 .nav-menu li {
 	display: inline-block;
 	position: relative;
@@ -1217,7 +1226,17 @@ div.nav-menu > ul {
 	padding: 15px 20px;
 	text-decoration: none;
 }
-
+.techmenu li a {
+	display: block;
+	font-size: 15px;
+	line-height: 1;
+	padding: 15px 20px;
+	text-decoration: none;
+}
+.techmenu li a:hover{
+	color: #22517c;
+	text-decoration: underline;
+}
 .nav-menu li:hover > a,
 .nav-menu li a:hover,
 .nav-menu li:focus > a,
@@ -2893,7 +2912,7 @@ footer.entry-meta .author {
 
 .site-footer {
 	background-color: #CDD5E3;
-	color: #686758;
+	color: #666;
 	font-size: 14px;
 	text-align: center;
 }
@@ -2931,7 +2950,9 @@ footer.entry-meta .author {
 	margin-right: 20px;
 	width: 245px;
 }
-
+.site-footer .widget:first-child {
+	padding-left: 0;
+}
 .sidebar .site-footer .widget {
 	width: 228px;
 }
@@ -2959,7 +2980,6 @@ footer.entry-meta .author {
 .site-info {
 	margin: 0 auto;
 	max-width: 1040px;
-	padding: 30px 0;
 	width: 100%;
 }
 

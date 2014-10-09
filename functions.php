@@ -1056,5 +1056,47 @@ if (!function_exists('get_iwan_custom_excerpt')) :
 		echo $the_str;
 	}
 
-
 endif;
+
+function is_blogs_fau_de() {
+	$http_host = filter_input(INPUT_SERVER, 'HTTP_HOST');
+	if ($http_host == 'blogs.fau.de')
+		return true;
+	else
+		return false;
+}
+
+function iwan_tecmenu_fallback($args) {
+	if (!is_blogs_fau_de())
+		return '';
+	global $current_blog, $post;
+	if (is_multisite()) {
+		$home = $current_blog->path;
+	} else {
+		$home = home_url();
+	}
+	if (is_page())
+		$page = get_page($post->ID);
+	// Siehe wp-includes/nav-menu-template.php
+	extract($args);
+	$links = array(
+		'<li><a href="' . network_site_url('/', 'http') . '">' . $before . __('Blogs@FAU', 'iwan') . $after . '</a></li>',
+		'<li><a href="http://www.portal.uni-erlangen.de/forums/viewforum/94">' . $before . __('Forum', 'iwan') . $after . '</a></li>',
+		sprintf(is_front_page() && $home == '/hilfe/' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . network_site_url('/hilfe/', 'http') . '">' . $before . __('Hilfe', 'iwan') . '</a>'),
+		sprintf(!empty($page) && $page->post_name == 'kontakt' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . home_url('/kontakt/', 'http') . '">' . $before . __('Kontakt', 'iwan') . $after . '</a>'),
+		'<li><a href="' . network_site_url('/impressum/', 'http') . '">' . $before . __('Impressum', 'iwan') . $after . '</a></li>',
+		'<li><a href="' . network_site_url('/nutzungsbedingungen/', 'http') . '">' . $before . __('Nutzungsbedingungen', 'iwan') . $after . '</a></li>'
+	);
+	$li = array();
+	foreach ($links as $link) {
+		if (false !== stripos($items_wrap, '<ul') or false !== stripos($items_wrap, '<ol'))
+			$li[] = $link;
+	}
+	$li = implode(PHP_EOL, $li);
+	$output = sprintf($items_wrap, $menu_id, $menu_class, $li);
+	if (!empty($container))
+		$output = "<$container class='$container_class' id='$container_id'>$output</$container>";
+	if ($echo)
+		echo $output;
+	return $output;
+}
