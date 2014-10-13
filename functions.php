@@ -714,7 +714,7 @@ if (!function_exists('iwan_post_socialmedia_icons')) :
 		$tw_title = $default_socialmedia_post_liste['twitter_share']['name'];
 		$tw_text = $default_socialmedia_post_liste['twitter_share']['link_title'];
 		$tw_link = $default_socialmedia_post_liste['twitter_share']['link'];
-		$tw_via = $options['via-twitter'];
+		if(isset($options['via-twitter'])) $tw_via = $options['via-twitter'];
 		if (isset($tw_active) && ($tw_active == 1)) {
 			$links .= '<a class="sm-' . strtolower($tw_title) . '_share" href=" ' . $tw_link . get_permalink();
 			if (isset($tw_via) && ($tw_via != '')) {
