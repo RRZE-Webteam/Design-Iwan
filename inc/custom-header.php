@@ -53,11 +53,11 @@ function iwan_custom_header_setup() {
 			'thumbnail_url' => '%s/images/headers/logo-fau-thumbnail.png',
 			'description'   => _x( 'Logo FAU', 'header image description', 'iwan' )
 		),
-		'fau-aktuell' => array(
+		/*'fau-aktuell' => array(
 			'url'           => '%s/images/headers/fau-aktuell.png',
 			'thumbnail_url' => '%s/images/headers/fau-aktuell-thumbnail.png',
 			'description'   => _x( 'FAU Aktuell', 'header image description', 'iwan' )
-		),
+		),*/
 	) );
 }
 add_action( 'after_setup_theme', 'iwan_custom_header_setup', 11 );
