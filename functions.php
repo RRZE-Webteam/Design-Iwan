@@ -1080,12 +1080,12 @@ function iwan_tecmenu_fallback($args) {
 	// Siehe wp-includes/nav-menu-template.php
 	extract($args);
 	$links = array(
-		'<li><a href="' . network_site_url('/', 'http') . '">' . $before . __('Blogs@FAU', 'iwan') . $after . '</a></li>',
-		'<li><a href="http://www.portal.uni-erlangen.de/forums/viewforum/94">' . $before . __('Forum', 'iwan') . $after . '</a></li>',
-		sprintf(is_front_page() && $home == '/hilfe/' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . network_site_url('/hilfe/', 'http') . '">' . $before . __('Hilfe', 'iwan') . '</a>'),
-		sprintf(!empty($page) && $page->post_name == 'kontakt' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . home_url('/kontakt/', 'http') . '">' . $before . __('Kontakt', 'iwan') . $after . '</a>'),
-		'<li><a href="' . network_site_url('/impressum/', 'http') . '">' . $before . __('Impressum', 'iwan') . $after . '</a></li>',
-		'<li><a href="' . network_site_url('/nutzungsbedingungen/', 'http') . '">' . $before . __('Nutzungsbedingungen', 'iwan') . $after . '</a></li>'
+		'<li><a href="' . network_site_url('/', 'https') . '">' . $before . __('Blogs@FAU', 'iwan') . $after . '</a></li>',
+		sprintf(is_front_page() && $home == '/hilfe/' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . network_site_url('/hilfe/', 'https') . '">' . $before . __('Hilfe', 'iwan') . '</a>'),
+		sprintf(!empty($page) && $page->post_name == 'kontakt' ? '<li class="current-menu-item">%s</li>' : '<li>%s</li>', '<a href="' . home_url('/kontakt/', 'https') . '">' . $before . __('Kontakt', 'iwan') . $after . '</a>'),
+		'<li><a href="' . network_site_url('/impressum/', 'https') . '">' . $before . __('Impressum', 'iwan') . $after . '</a></li>',
+                '<li><a href="' . network_site_url( '/datenschutz/', 'https' ) . '">' . $before . __( 'Datenschutz', 'iwan' ) . $after . '</a></li>',
+		'<li><a href="' . network_site_url('/nutzungsbedingungen/', 'https') . '">' . $before . __('Nutzungsbedingungen', 'iwan') . $after . '</a></li>'
 	);
 	$li = array();
 	foreach ($links as $link) {
